@@ -1,1 +1,5 @@
-// for later use
+class Users {
+
+}
+
+module.exports = Users;

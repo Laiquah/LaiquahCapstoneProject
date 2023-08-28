@@ -1,1 +1,5 @@
-// for later use
+class Products{
+
+}
+
+module.exports = Products;

@@ -7,27 +7,27 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <ul class="navbar-nav m-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <router-link to="/">home</router-link>
+              <router-link to="/">HOME</router-link>
             </li>
             <li class="nav-item">
-              <router-link to="/about">about</router-link>
+              <router-link to="/about">ABOUT</router-link>
             </li>
             <li class="nav-item">
-              <router-link to="/products">products</router-link>
+              <router-link to="/products">PRODUCTS</router-link>
             </li>
             <li class="nav-item">
               <router-link to="/help">FAQs</router-link>
             </li>
             <li class="nav-item">
-              <router-link to="/contact">contact</router-link>
+              <router-link to="/contact">CONTACT</router-link>
             </li>
             <li class="nav-item">
-              <router-link to="/admin">admin</router-link>
+              <router-link to="/admin">ADMIN</router-link>
             </li>
             <li class="nav-item">
-              <router-link to="/profile">profile</router-link>
+              <router-link to="/profile">PROFILE</router-link>
             </li>
           </ul>
         </div>
@@ -43,5 +43,13 @@
 </script>
 
 <style scoped>
+.nav-item{
+  margin-left: 2rem;
+  font-weight: bold;
+  font-size: smaller;
+}
 
+.navbar{
+  background-color: #040D12;
+}
 </style>

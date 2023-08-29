@@ -44,7 +44,7 @@
         <div class="row">
           <div class="col-4">
             <img
-              src="https://i.postimg.cc/c1z95zcZ/images.png"
+              src="https://i.postimg.cc/2y63D4RX/download.png"
               alt="samsung"
               loading="lazy"
               class="img-fluid"
@@ -52,34 +52,34 @@
           </div>
           <div class="col-4">
             <img
-              src="https://i.postimg.cc/c1z95zcZ/images.png"
-              alt="samsung"
+              src="https://i.postimg.cc/rpcLtxyn/images-9.jpg"
+              alt="hauwei"
               loading="lazy"
               class="img-fluid"
             />
           </div>
           <div class="col-4">
             <img
-              src="https://i.postimg.cc/c1z95zcZ/images.png"
-              alt="samsung"
+              src="https://i.postimg.cc/Vs3skStT/images-2.png"
+              alt="generac"
               loading="lazy"
               class="img-fluid"
             />
           </div>
         </div>
         <div class="row">
-          <div class="col">
+          <div class="col" id="card1">
             <img
-              src="https://i.postimg.cc/c1z95zcZ/images.png"
-              alt="samsung"
+              src="https://i.postimg.cc/Bbhx2TGx/download-3.png"
+              alt="CyberPower Systems"
               loading="lazy"
               class="img-fluid"
             />
           </div>
-          <div class="col">
+          <div class="col" id="card2">
             <img
-              src="https://i.postimg.cc/c1z95zcZ/images.png"
-              alt="samsung"
+              src="https://i.postimg.cc/sXLjSxNM/images-10.jpg"
+              alt="Energizer"
               loading="lazy"
               class="img-fluid"
             />
@@ -129,26 +129,16 @@
           <div class="carousel-inner">
             <div class="carousel-item active">
               <img
-                src="https://i.postimg.cc/LXSGPNK0/C12-C2-Eighton-Lee-Paulse-2.jpg"
-                loading="lazy"
-                class="d-block img-fluid"
-                alt="eighton"
-              />
-              <div class="carousel-caption d-none d-md-block">
-                <h5>Eighton-Lee Paulse</h5>
-                <p>DIRECTOR AND OWNER</p>
-              </div>
-            </div>
-            <div class="carousel-item">
-              <img
-                src="https://i.postimg.cc/rpW0pDSP/C12-Laiquah-Cotie-2.jpg."
+                src="https://i.postimg.cc/rpW0pDSP/C12-Laiquah-Cotie-2.jpg"
                 loading="lazy"
                 class="d-block img-fluid"
                 alt="laiquah"
               />
               <div class="carousel-caption d-none d-md-block">
-                <h5>Laiquah Cotie</h5>
-                <p>OPERATIONS & MARKETING</p>
+                <h5 class="h5">Laiquah Cotie</h5>
+                <p>DIRECTOR AND OWNER</p>
+                <button class="btn2"><a href="tel:0658190250">contact</a></button>
+                <button class="btn2"><a href="mailto:cotielaiquah@gmail">email</a></button>
               </div>
             </div>
             <div class="carousel-item">
@@ -156,11 +146,27 @@
                 src="https://i.postimg.cc/YqF6g8X7/C12-Ganiefah-Majiet-1.jpg"
                 loading="lazy"
                 class="d-block img-fluid"
-                alt="ethan"
+                alt="ganiefah"
               />
               <div class="carousel-caption d-none d-md-block">
-                <h5>Ganiefah Majiet</h5>
-                <p>SLIPCASTING & SLIP MIXING</p>
+                <h5 class="h5">Ganiefah Majiet</h5>
+                <p>OPERATIONS & MARKETING</p>
+                <button class="btn2"><a href="tel:0619740330">contact</a></button>
+                <button class="btn2"><a href="mailto:gmajiet180804@gmail.com">email</a></button>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <img
+                src="https://i.postimg.cc/LXSGPNK0/C12-C2-Eighton-Lee-Paulse-2.jpg"
+                loading="lazy"
+                class="d-block img-fluid"
+                alt="eighton"
+              />
+              <div class="carousel-caption d-none d-md-block">
+                <h5 class="h5">Eighton-Lee Paulse</h5>
+                <p>SUPERVISOR</p>
+                <button class="btn2"><a href="tel:0679906093">contact</a></button>
+                <button class="btn2"><a href="mailto:eightonleepaulse@gmail.com">email</a></button>
               </div>
             </div>
             <div class="carousel-item">
@@ -168,23 +174,13 @@
                 src="https://i.postimg.cc/W1CdsJL4/IMG-9863-1.jpg"
                 loading="lazy"
                 class="d-block img-fluid"
-                alt="ganiefah"
+                alt="ethan"
               />
               <div class="carousel-caption d-none d-md-block">
-                <h5>Ethan Oliver</h5>
+                <h5 class="h5">Ethan Oliver</h5>
                 <p>ACCOUNTS & BOOK-KEEPING</p>
-              </div>
-            </div>
-            <div class="carousel-item">
-              <img
-                src="https://i.postimg.cc/RF3cjwjR/C12-Mish-Al-Taliep-1.jpg"
-                loading="lazy"
-                class="d-block img-fluid"
-                alt="mish-al"
-              />
-              <div class="carousel-caption d-none d-md-block">
-                <h5>Mish-Al Taliep</h5>
-                <p>SLABROLLING & FETTLING</p>
+                <button class="btn2"><a href="tel:0646845584">contact</a></button>
+                <button class="btn2"><a href="mailto:ethanliamoliver28@gmail.com">email</a></button>
               </div>
             </div>
           </div>
@@ -218,6 +214,27 @@ export default {};
 </script>
 
 <style scoped>
+#card1{
+  margin-left: 11rem;
+}
+
+#card2{
+  margin-right: 11rem;
+}
+
+.h5{
+  font-weight: bold;
+}
+
+.btn2{
+  margin-top: 2rem;
+  font-weight: bold;
+  background-color: #93B1A6;
+  padding: .4rem;
+  width: 7rem;
+  border-radius: 1rem;
+  color: white;
+}
 .btn1{
   margin-top: 2rem;
   font-weight: bold;
@@ -269,6 +286,7 @@ export default {};
 
 hr {
   width: 75%;
+  border: 2px solid white
 }
 
 .heading {

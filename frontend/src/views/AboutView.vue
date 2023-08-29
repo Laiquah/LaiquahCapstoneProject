@@ -2,26 +2,28 @@
   <div>
     <div class="about">
       <h1 class="heading">about power outage innovations</h1>
-      <div class="display">
-        <img
-          src="https://i.postimg.cc/1XHKthPf/Screenshot-2023-08-27-131317-removebg-preview.png"
-          alt="logo"
-          loading="lazy"
-          class="img-fluid"
-          id="image"
-        />
-        Power Outage Innovations is dedicated to transforming how people and
-        businesses manage power disruptions. By developing advanced solutions,
-        we empower customers to control their energy usage amidst frequent
-        outages and load shedding. Our mission is to create a world where
-        interruptions in power become opportunities for seamless continuity,
-        using technology, energy storage, and smart systems to redefine power
-        resilience. Our pillars include intelligent load shedding, reliable
-        energy storage, sustainability through renewables, an innovation
-        ecosystem, customer empowerment, and community impact, all aimed at
-        shaping a future where power challenges are met with innovation and
-        preparedness.
-      </div>
+      <center>
+        <div class="display">
+          <img
+            src="https://i.postimg.cc/1XHKthPf/Screenshot-2023-08-27-131317-removebg-preview.png"
+            alt="logo"
+            loading="lazy"
+            class="img-fluid"
+            id="image"
+          />
+          Power Outage Innovations is dedicated to transforming how people and
+          businesses manage power disruptions. By developing advanced solutions,
+          we empower customers to control their energy usage amidst frequent
+          outages and load shedding. Our mission is to create a world where
+          interruptions in power become opportunities for seamless continuity,
+          using technology, energy storage, and smart systems to redefine power
+          resilience. Our pillars include intelligent load shedding, reliable
+          energy storage, sustainability through renewables, an innovation
+          ecosystem, customer empowerment, and community impact, all aimed at
+          shaping a future where power challenges are met with innovation and
+          preparedness.
+        </div>
+      </center>
       <center>
         <hr />
       </center>
@@ -282,6 +284,7 @@ export default {};
 .display {
   display: flex;
   justify-content: center;
+  width: 85%;
 }
 
 hr {

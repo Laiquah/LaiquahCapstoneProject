@@ -10,8 +10,8 @@
                       <div class="cta-text">
                         <h4>Find us</h4>
                         <span
-                          >Unit 1 - 3 Toledo Close, Capricorn Drive , Capricorn Park
-                          Muizenburg</span
+                          >8 Myna Street, Pelican Park , Cape Town
+                          Western Cape</span
                         >
                       </div>
                     </div>
@@ -22,8 +22,6 @@
                       <div class="cta-text">
                         <h4>Call us</h4>
                         <span><a href="tel:0658190250">065 819 0250</a></span>
-                        <br />
-                        <span><a href="tel:0679906093">067 990 6093</a></span>
                       </div>
                     </div>
                   </div>
@@ -35,12 +33,6 @@
                         <span
                           ><a href="mailto:cotielaiquah@gmail.com" target="_blank"
                             >cotielaiquah@gmail.com</a
-                          ></span
-                        >
-                        <br />
-                        <span
-                          ><a href="mailto:eightonleepaulse@gmail.com" target="_blank"
-                            >eightonleepaulse@gmail.com</a
                           ></span
                         >
                       </div>
@@ -55,7 +47,7 @@
                       <div class="footer-logo">
                         <router-link to="/"
                           ><img
-                            src=""
+                            src="https://i.postimg.cc/1XHKthPf/Screenshot-2023-08-27-131317-removebg-preview.png"
                             class="img-fluid"
                             loading="lazy"
                             alt="logo"

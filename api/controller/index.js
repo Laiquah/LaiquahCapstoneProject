@@ -1,6 +1,6 @@
 const express = require("express");
 const bodyParser = require("body-parser");
-const { verifyAToken } = require("../middleware/AuthenticateUser");
+const { verifyAToken } = require("../middleware/AunthenticateUser");
 const routes = express.Router();
 const { users, products } = require("../model");
 

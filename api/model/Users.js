@@ -46,9 +46,8 @@ class Users {
       }
       async register(req, res) {
         const data = req.body;
-        data.userPass = await hash(data.userPass, 16);
+        data.userPass = await hash(data.userPass, 15);
         const user = {
-          firstname: data.fisrtName,
           emailAdd: data.emailAdd,
           userPass: data.userPass,
         };
@@ -76,9 +75,9 @@ class Users {
       async login(req, res) {
         const { emailAdd, userPass } = req.body;
         const query = `
-                SELECT firstName, lastName,
-                userAge, gender, userRole, emailAdd,
-                userPass, userProfile FROM Users
+                SELECT 
+                userID, firstName, lastName, age, gender, emailAdd, userRole, userURL, userPass
+                FROM Users
                 WHERE emailAdd = ?
             `;
         db.query(query, [emailAdd], async (err, result) => {
@@ -86,6 +85,7 @@ class Users {
             res.json({
               status: res.statusCode,
               msg: "An error has occured",
+              err
             });
           }
           if (!result?.length) {

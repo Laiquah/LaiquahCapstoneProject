@@ -7,7 +7,7 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav m-auto mb-2 mb-lg-0">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
               <router-link to="/">HOME</router-link>
             </li>
@@ -27,7 +27,15 @@
               <router-link to="/admin">ADMIN</router-link>
             </li>
             <li class="nav-item">
-              <router-link to="/profile">PROFILE</router-link>
+              <router-link to="/profile"><i class="bi bi-person" id="person"></i></router-link>
+            </li>
+          </ul>
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <router-link to="/profile"><i class="bi bi-cart-check" id="person"></i></router-link>
+            </li>
+            <li class="nav-item">
+              <router-link to="/profile">LOGOUT</router-link>
             </li>
           </ul>
         </div>
@@ -55,5 +63,9 @@
 
 #logo{
   width: 6rem;
+}
+
+#person{
+  width: 5rem;
 }
 </style>

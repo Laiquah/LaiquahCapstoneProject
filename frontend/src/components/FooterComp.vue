@@ -77,28 +77,19 @@
                     <div class="footer-social-icon">
                       <span>Follow us</span>
                       <a
+                        href="https://www.facebook.com/profile.php?id=100076196217376"
+                        target="_blank"
+                        ><i class="bi bi-facebook"></i></a>
+                      <a
                         href="https://www.facebook.com/pottersworkCT/"
                         target="_blank"
-                        ><img
-                          src="https://i.postimg.cc/QMwWNNN2/icons8-facebook-150.png"
-                          loading="lazy"
-                          alt="facebook"
-                          class="ll"
-                      /></a>
+                        ><i class="bi bi-whatsapp"></i></a>
                       <a href="https://www.instagram.com/potterswork/" target="_blank"
-                        ><img
-                          src="https://i.postimg.cc/gcRBWnkP/icons8-instagram-150.png"
-                          loading="lazy"
-                          alt="instagram"
-                          class="ll"
-                      /></a>
+                        ><i class="bi bi-instagram"></i></a>
                       <a href="https://twitter.com/LaiquahC" target="_blank"
-                        ><img
-                          src="https://i.postimg.cc/63bF9JwS/icons8-twitter-150.png"
-                          loading="lazy"
-                          alt="twitter"
-                          class="ll"
-                      /></a>
+                        ><i class="bi bi-twitter"></i></a>
+                      <a href="https://twitter.com/LaiquahC" target="_blank"
+                        ><i class="bi bi-linkedin"></i></a>
                     </div>
                   </div>
                 </div>

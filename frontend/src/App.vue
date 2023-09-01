@@ -35,4 +35,8 @@ a{
   text-decoration: none !important;
   color: white !important;
 }
+
+nav a.router-link-exact-active{
+  border-bottom: 2px solid #5C8374;
+}
 </style>

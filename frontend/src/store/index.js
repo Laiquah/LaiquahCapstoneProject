@@ -11,7 +11,8 @@ export default createStore({
     msg:null,
     product: null,
     products: null,
-    token: null
+    token: null,
+    selectedProduct: null
   },
   getters: {
   },
@@ -42,6 +43,9 @@ export default createStore({
     },
     setRegisterStatus(state, user) {
       state.user = user
+    },
+    setSelectedProduct(state, product) {
+      state.selectedProduct = product
     }
   },
   actions: {

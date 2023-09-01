@@ -1,13 +1,13 @@
 <template>
   <div>
     <div class="home">
-      <div class="text" id="text">
-        <h1>Power Outage Innovations</h1>
+        <div class="text">
+          <h1>Power Outage Innovations</h1>
+        </div>
+        <div class="text">
+          <h2>"lighting your way through every blackout"</h2>
+        </div>
       </div>
-      <div class="text" id="text">
-        <h2>"lighting your way through every blackout"</h2>
-      </div>
-    </div>
       <div class="featuredProducts">
         <h3>FEATURED PRODUCTS</h3>
         <div class="row">
@@ -70,9 +70,28 @@
   background-color: #040D12;
 }
 
-#text{
-  font-size: larger;
+h1{
+  font-size: 7rem;
   font-weight: bolder;
+  text-shadow: 2px 2px black;
+}
+
+h2{
+  font-size: 2rem;
+  font-weight: bolder;
+  text-shadow: 2px 2px black;
+}
+
+.text {
+  position: relative;
+  top: 30%;
+  color: white;
+  text-shadow: 2px 2px black;
+}
+
+.heading{
+  font-size: xx-large;
+  font-weight: 900;
 }
 
 .img-fluid{

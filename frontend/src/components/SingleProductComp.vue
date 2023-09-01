@@ -29,6 +29,7 @@
                     {{ product.prodDW }}
                   </div>
                   <p>Price: R{{ product.prodPrice }}</p>
+                  <button class="btn">ADD TO CART</button>
                 </div>
               </div>
               <div v-else>

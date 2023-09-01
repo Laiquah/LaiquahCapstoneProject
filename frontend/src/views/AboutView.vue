@@ -298,4 +298,55 @@ hr {
   text-decoration: underline;
   font-weight: bolder;
 }
+
+@media screen and (max-width: 700px) {
+  .display{
+    display: flex;
+    flex-direction: column;
+  }
+
+  #image{
+    width: 100%;
+  }
+
+  .row{
+    --bs-gutter-x: 0;
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width:300px) {
+  .carousel-inner {
+    width: 280px;
+  }
+  
+  .d-block {
+    width: 280px;
+  }
+  
+  .carousel {
+    text-align: center;
+    width: 280px;
+    margin-bottom: 2rem;
+  }
+  
+  .carousel-item {
+    width: 280px;
+  }
+
+  .col{
+    width: 100%;
+  }
+
+  #card1{
+    margin: 0;
+    margin-bottom: 1rem;
+    margin-top: 0;
+  }
+
+  .col-4{
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+}
 </style>

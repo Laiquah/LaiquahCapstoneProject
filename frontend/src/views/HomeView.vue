@@ -120,4 +120,31 @@ h2{
 h3{
   text-shadow: 2px 2px white;
 }
+
+@media  screen and (max-width:300px) {
+  .text {
+    top: 10%;
+  }
+
+  h1{
+    font-size: 50px;
+  }
+
+  .col-4{
+    width: 300px;
+  }
+
+  .row{
+    --bs-gutter-x: 0;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .text {
+    top: 10%;
+  }
+  .row{
+    --bs-gutter-x: 0;
+  }
+}
 </style>

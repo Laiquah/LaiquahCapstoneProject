@@ -190,4 +190,48 @@ hr {
     background-color: rgba(0, 0, 0, 0.5);
     opacity: 30%;
   }
+
+  @media screen and (max-width:700px) {
+    .carousel-inner {
+      width: 680px;
+    }
+    
+    .d-block {
+      width: 680px;
+    }
+    
+    .carousel {
+      text-align: center;
+      width: 680px;
+      margin-bottom: 2rem;
+    }
+    
+    .carousel-item {
+      width: 680px;
+    }
+  }
+
+  @media screen and (max-width:300px) {
+    .carousel-inner {
+      width: 280px;
+    }
+    
+    .d-block {
+      width: 280px;
+    }
+    
+    .carousel {
+      text-align: center;
+      width: 280px;
+      margin-bottom: 2rem;
+    }
+    
+    .carousel-item {
+      width: 280px;
+    }
+
+    .card-body{
+      width: 100%;
+    }
+  }
 </style>

@@ -36,7 +36,7 @@
             </div>
             <div class="price">
               price:
-              <p class="card-text">{{ product.prodPrice }}</p>
+              <p class="card-text">R{{ product.prodPrice }}</p>
             </div>
             <div class="quantity">
               quantity:
@@ -164,5 +164,21 @@ button {
   margin-bottom: 2rem;
   text-decoration: underline;
   font-weight: bolder;
+}
+
+@media screen and (max-width:300px) {
+  .row{
+    --bs-gutter-x: 0;
+  }
+}
+
+@media screen and (max-width:700px) {
+  .row{
+    --bs-gutter-x: 0;
+  }
+   
+  .col{
+    width: 50%;
+  }
 }
 </style>

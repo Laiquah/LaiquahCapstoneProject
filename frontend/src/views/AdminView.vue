@@ -43,7 +43,7 @@
                 <th>DATA</th>
                 <th>DIMENSIONS</th>
                 <th>IMAGE</th>
-                <th>PRICE</th>
+                <th>PRICE (R)</th>
                 <th>CATEGORY</th>
                 <th>QUANTITY</th>
                 <th>ACTION</th>
@@ -58,7 +58,7 @@
                 <td>{{ product.prodData }}</td>
                 <td>{{ product.prodDW }}</td>
                 <td><img :src="product.prodURL" :alt="product.prodName" loading="lazy" class="img-fluid"></td>
-                <td>{{ product.price }}</td>
+                <td>{{ product.prodPrice }}</td>
                 <td>{{ product.category }}</td>
                 <td>{{ product.quantity }}</td>
                 <td><button>edit</button><button>delete</button></td>

@@ -107,7 +107,39 @@ export default createStore({
       } else if(err){
         context.commit("setMsg", "Login Failed")
       }
-    }
+    },
+    async updateUser(context, payload) {
+      console.log(payload)
+      try {
+        const res = await axios.patch(`${miniURL}user/${payload.userID}`, payload.data);
+        const { msg, err } = res.data
+        if(msg){
+          context.dispatch("fetchUsers")
+          context.commit("setUser", msg)
+        } else{
+          context.commit("setMsg", e)
+        }
+      } catch (e) {
+        context.commit("setMsg", "an error occured");
+      }
+    },
+    async deleteUser(context, id) {
+      try {
+        const { res } = await axios.delete(`${miniURL}user/${id}`);
+        const {msg, err} = res.data
+        if(err){
+          console.error("An error has occured: ", err)
+          context.commit("setMsg", "An error has occured")
+        }
+        if(msg){
+          context.dispatch("fetchUsers")
+          context.commit('setUser', msg)
+          console.log("User deleted successfully")
+        }
+      } catch (e) {
+        context.commit("setMsg", "an error occured");
+      }
+    },
   },
   modules: {
   }

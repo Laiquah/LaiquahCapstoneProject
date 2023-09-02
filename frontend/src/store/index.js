@@ -178,6 +178,23 @@ export default createStore({
         context.commit("setMsg", "an error occured");
       }
     },
+    async createProduct(context, payload) {
+      console.log("REACHED");
+      try {
+        const { res } = await axios.post(`${miniURL}product`, payload);
+        const { msg, err } = await res.data;
+        console.log(msg, err);
+        if (msg) {
+          context.dispatch("fetchProducts")
+          context.commit("setProduct", msg);
+          context.commit("setSpinner", false);
+        } else {
+          context.commit("setMsg", err);
+        }
+      } catch (e) {
+        context.commit("setMsg", "an error occured");
+      }
+    },
   },
   modules: {
   }

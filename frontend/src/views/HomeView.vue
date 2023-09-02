@@ -118,7 +118,13 @@ h2{
 }
 
 h3{
-  text-shadow: 2px 2px white;
+  color: white;
+  text-shadow: 5px 5px #5C8374;
+  font-size: 5rem;
+  text-decoration: underline;
+  position: relative;
+  top: 1rem;
+  margin-bottom: 4rem;
 }
 
 @media  screen and (max-width:300px) {

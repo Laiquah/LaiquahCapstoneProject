@@ -26,7 +26,7 @@
                 <td>{{ user.userRole }}</td>
                 <td>{{ user.emailAdd }}</td>
                 <td><img :src="user.userURL" :alt="user.firstname" loading="lazy" class="img-fluid image"></td>
-                <td><button>edit</button><button>delete</button></td>
+                <td><updateUser :user="user" /><button>delete</button></td>
               </tr>
               <tr v-else>
                 <Spinner/>
@@ -73,9 +73,11 @@
 
 <script>
 import Spinner from '../components/SpinnerComp.vue'
+import updateUser from '../components/UpdateUserComp.vue'
     export default {
         components: {
-          Spinner
+          Spinner,
+          updateUser
         },
         computed: {
           users() {

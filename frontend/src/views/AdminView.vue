@@ -62,7 +62,7 @@
                   <td><img :src="product.prodURL" :alt="product.prodName" loading="lazy" class="img-fluid"></td>
                   <td>{{ product.prodPrice }}</td>
                   <td>{{ product.category }}</td>
-                  <td><button>edit</button><button>delete</button></td>
+                  <td><updateProduct :product="product" /><button>delete</button></td>
                 </tr>
               </tbody>
             </table>
@@ -74,10 +74,12 @@
 <script>
 import Spinner from '../components/SpinnerComp.vue'
 import updateUser from '../components/UpdateUserComp.vue'
+import updateProduct from '../components/UpdateProductComp.vue'
     export default {
         components: {
           Spinner,
-          updateUser
+          updateUser,
+          updateProduct
         },
         computed: {
           users() {

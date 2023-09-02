@@ -35,6 +35,7 @@
           </table>
         </div>
         <h1 class="heading">PRODUCTS</h1>
+        <addProduct/>
         <div class="table-responsive">
           <table class="table table-bordered border-#93B1A6 text-center">
               <thead>
@@ -75,11 +76,13 @@
 import Spinner from '../components/SpinnerComp.vue'
 import updateUser from '../components/UpdateUserComp.vue'
 import updateProduct from '../components/UpdateProductComp.vue'
+import addProduct from '../components/AddProductComp.vue'
     export default {
         components: {
           Spinner,
           updateUser,
-          updateProduct
+          updateProduct,
+          addProduct
         },
         computed: {
           users() {

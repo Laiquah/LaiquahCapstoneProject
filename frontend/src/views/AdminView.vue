@@ -123,4 +123,19 @@ import updateProduct from '../components/UpdateProductComp.vue'
   text-decoration: underline;
   font-weight: bolder;
 }
+
+button {
+  padding: .5rem;
+  width: 5rem;
+  border: 2px solid #759e8f;
+  background-color: #5C8374;
+  color: white;
+  margin-bottom: 1rem;
+  font-weight: bolder;
+  border-radius: 5rem;
+}
+
+button:hover{
+  background-color: #93b1a6;
+}
 </style>

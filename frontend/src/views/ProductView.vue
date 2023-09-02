@@ -142,14 +142,18 @@ h5 {
 }
 
 button {
-  padding: 1rem;
-  width: 15rem;
+  padding: .5rem;
+  width: 10rem;
   border: 2px solid #759e8f;
-  background-color: #93b1a6;
+  background-color: #5C8374;
   color: white;
   margin-bottom: 1rem;
   font-weight: bolder;
   border-radius: 5rem;
+}
+
+button:hover{
+  background-color: #93b1a6;
 }
 
 #search {
@@ -164,6 +168,12 @@ button {
   margin-bottom: 2rem;
   text-decoration: underline;
   font-weight: bolder;
+}
+
+.card{
+  border: 2px solid #759e8f;
+  background-color: #93b1a6;
+  padding:.4rem;
 }
 
 @media screen and (max-width:300px) {

@@ -12,9 +12,13 @@ export default createStore({
     product: null,
     products: null,
     token: null,
-    selectedProduct: null
+    selectedProduct: null,
+    cart: []
   },
   getters: {
+    cartTotal: (state) => {
+      return state.cart.reduce((total, product) => total + product.prodPrice, 0);
+    },
   },
   mutations: {
     setUser(state, user) {
@@ -46,6 +50,12 @@ export default createStore({
     },
     setSelectedProduct(state, product) {
       state.selectedProduct = product
+    },
+    addToCart(state, product) {
+      state.cart.push(product)
+    },
+    removeFromCart(state, index) {
+      state.cart.slipce(index, 1)
     }
   },
   actions: {
@@ -195,6 +205,9 @@ export default createStore({
         context.commit("setMsg", "an error occured");
       }
     },
+    addToCart({ commit }, product) {
+      commit('addToCart', product)
+    }
   },
   modules: {
   }

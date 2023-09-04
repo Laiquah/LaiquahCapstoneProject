@@ -4,7 +4,7 @@
       type="button"
       class="btn"
       data-bs-toggle="modal"
-      data-bs-target="#exampleModal12"
+      data-bs-target="#addProductModal"
     >
       add product
     </button>
@@ -12,9 +12,9 @@
     <!-- Modal -->
     <div
       class="modal fade"
-      id="exampleModal12"
+      id="addProductModal"
       tabindex="-1"
-      aria-labelledby="exampleModal12Label"
+      aria-labelledby="addProductModalLabel"
       aria-hidden="true"
     >
       <div class="modal-dialog">
@@ -126,9 +126,14 @@
       },
     };
   },
+  computed:{
+    product(){
+      return this.$store.state.product
+    }
+  },
   methods: {
     createProduct() {
-      this.$store.dispatch("createProduct", this.model.product);
+      this.$store.dispatch("addProduct", this.model.product);
     },
   },
     }

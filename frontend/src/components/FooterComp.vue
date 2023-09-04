@@ -100,7 +100,7 @@
                 <div class="row">
                   <div class="text-center">
                     <div class="copyright-text">
-                      <p>Copyright &copy; 2023, All Right Reserved</p>
+                      <p>Copyright &copy; {{ newYear }}, All Right Reserved </p>
                     </div>
                   </div>
                 </div>
@@ -112,7 +112,11 @@
 
 <script>
     export default {
-        
+      data() {
+    return {
+      newYear: new Date().getUTCFullYear(),
+    };
+  },
     }
 </script>
 

@@ -29,24 +29,29 @@
             <h1 class="headings">CARD DETAILS</h1>
             <center>
                 <div class="card">
-                    <label>Card Number:</label>
-                    <input>
-                    <br>
-                    <label>Expiration Date:</label>
-                    <div class="row">
-                        <div class="col">
-                            <input class="month">
+                    <form class="form">
+                      <div class="credit-card-info--form">
+                        <div class="input_container">
+                          <label for="password_field" class="input_label">Card holder full name</label>
+                          <input id="password_field" class="input_field" type="text" name="input-name" title="Inpit title" placeholder="Enter your full name">
                         </div>
-                        <div class="col">
-                            <input class="month">
+                        <div class="input_container">
+                          <label for="password_field" class="input_label">Card Number</label>
+                          <input id="password_field" class="input_field" type="number" name="input-name" title="Inpit title" placeholder="0000 0000 0000 0000">
                         </div>
-                    </div>
-                    <br>
-                    <label>Security Code:</label>
-                    <input>
-                    <br>
+                        <div class="input_container">
+                          <label for="password_field" class="input_label">Expiry Date / CVV</label>
+                          <div class="split">
+                          <input id="password_field" class="input_field" type="text" name="input-name" title="Expiry Date" placeholder="01/23">
+                          <input id="password_field" class="input_field" type="number" name="cvv" title="CVV" placeholder="CVV">
+                        </div>
+                        </div>
+                      </div>
+                      <center>
+                          <button class="purchase--btn" @click="$router.push('/thank')">Submit</button>
+                      </center>
+                    </form>
                 </div>
-                <button>Submit</button>
             </center>
         </div>
     </div>
@@ -67,17 +72,101 @@ label{
     font-weight: bolder;
     font-size: 1rem;
 }
-
-.month{
-    width: 10rem;
-}
 .card {
     width: 30rem;
-    height: 19rem;
+    height: max-content;
     padding: 2rem;
     margin-bottom: 2rem;
     background: #5C8374;
     box-shadow: #759e8f 0px 2px 4px, #759e8f 0px 7px 13px -3px, #759e8f 0px -3px 0px inset;
+  }
+  
+  .form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+  }
+  
+  .credit-card-info--form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .input_container {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  
+  .split {
+    display: grid;
+    grid-template-columns: 4fr 2fr;
+    gap: 15px;
+  }
+  
+  .split input {
+    width: 100%;
+  }
+  
+  .input_label {
+    font-size: 20px;
+    color: black;
+    font-weight: 600;
+  }
+  
+  .input_field {
+    width: auto;
+    height: 40px;
+    padding: 0 0 0 16px;
+    border-radius: 9px;
+    outline: none;
+    background-color: #F2F2F2;
+    border: 1px solid #e5e5e500;
+    transition: all 0.3s cubic-bezier(0.15, 0.83, 0.66, 1);
+  }
+  
+  .input_field:focus {
+    border: 1px solid transparent;
+    box-shadow: 0px 0px 0px 2px #242424;
+    background-color: transparent;
+  }
+  
+  .purchase--btn {
+    height: 55px;
+    border: 2px solid #759e8f;
+    background-color: #93b1a6;
+    color: white;
+    border-radius: 11px;
+    border: 0;
+    outline: none;
+    color: #ffffff;
+    font-size: 13px;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+    box-shadow: 0px 0px 0px 0px #FFFFFF, 0px 0px 0px 0px #000000;
+    transition: all 0.3s cubic-bezier(0.15, 0.83, 0.66, 1);
+  }
+  
+  .purchase--btn:hover {
+    box-shadow: 0px 0px 0px 2px #FFFFFF, 0px 0px 0px 4px #0000003a;
+  }
+  
+  .input_field::-webkit-outer-spin-button,
+  .input_field::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  
+  .input_field[type=number] {
+    -moz-appearance: textfield;
+  }
+
+  input{
+    height: 2rem;
   }
 
 hr {

@@ -27,6 +27,12 @@
               <router-link to="/admin">ADMIN</router-link>
             </li>
             <li class="nav-item">
+              <router-link to="/login">LOGIN</router-link>
+            </li>
+            <li class="nav-item">
+              <router-link to="/register">REGISTER</router-link>
+            </li>
+            <li class="nav-item">
               <router-link to="/profile"><i class="bi bi-person" id="person"></i></router-link>
             </li>
           </ul>

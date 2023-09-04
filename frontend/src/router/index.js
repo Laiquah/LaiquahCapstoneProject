@@ -51,7 +51,23 @@ const routes = [
     path: '/checkout',
     name: 'CheckoutView',
     component: () => import('../views/CheckoutView.vue')
-  }
+  },
+  {
+    path: '/thank',
+    name: 'ThankYouView',
+    component: () => import('../views/ThankView.vue')
+  },
+  {
+    path: '/login',
+    name: 'LoginView',
+    component: () => import('../views/LoginView.vue')
+  },
+  {
+    path: '/register',
+    name: 'RegisterView',
+    component: () => import('../views/RegisterView.vue')
+  },
+
 ]
 
 const router = createRouter({

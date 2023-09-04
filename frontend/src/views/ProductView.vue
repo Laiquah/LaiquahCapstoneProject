@@ -1,14 +1,8 @@
 <template>
   <div>
-    <form class="d-flex mb-2 searchBTN" role="search">
-      <input
-        class="form-control"
-        type="search"
-        id="search"
-        placeholder="Search"
-        aria-label="Search"
-      />
-    </form>
+    <form class="d-flex mb-2 searchBTN" role="search" @submit.prevent="searchProducts">
+      <input class="form-control" type="search" id="search" placeholder="Search" aria-label="Search" v-model="searchProducts" />
+  </form>
     <h1 class="heading">PRODUCTS</h1>
     <div
       class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-md-4"
@@ -58,7 +52,7 @@
             </div>
             <div class="buttons">
               <button  @click="viewProduct(product.prodID)">VIEW MORE</button>
-              <button>ADD TO CART</button>
+              <button @click="addToCart(product)">ADD TO CART</button>
             </div>
           </div>
         </div>
@@ -73,12 +67,21 @@
 <script>
 import Spinner from "../components/SpinnerComp.vue";
 export default {
+  props: ['products'],
   components: {
     Spinner,
   },
   computed: {
     products() {
       return this.$store.state.products;
+    },
+    filteredProducts() {
+      let filtered = this.products
+      if(this.searchProducts !== ''){
+        filtered = filtered.filter(product => product.prodName.toLowerCase().includes(this.searchProducts.toLowerCase()) || 
+        product.category.toLowerCase().includes(this.searchProducts.toLowerCase()))
+      }
+      return filtered
     },
   },
   mounted() {
@@ -92,6 +95,18 @@ export default {
       this.$store.commit("setSelectedProduct", chosenProd);
       this.$router.push({ name: "ProductView", params: { prodID: prodID } });
     },
+    addToCart(product) {
+      this.$store.dispatch('addToCart', product)
+    },
+    searchProducts(e) {
+      e.preventDefault()
+      this.searchProducts = this.searchProducts.trim()
+    }
+  },
+  data() {
+    return {
+      searchProducts: ''
+    }
   },
 };
 </script>

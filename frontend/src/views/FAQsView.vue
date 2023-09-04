@@ -136,6 +136,7 @@
     font-weight: bolder;
     font-size: xx-large;
   }
+  
 hr {
     width: 75%;
     border: 2px solid white

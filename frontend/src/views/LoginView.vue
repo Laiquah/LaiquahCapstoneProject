@@ -3,61 +3,50 @@
         <h1 class="heading">LOGIN IF YOU ALREADY HAVE AN ACCOUNT</h1>
         <center>
             <div class="card">
-                <form @submit.prevent="Login">
+                <form @submit.prevent="login">
                     <label>Email address:</label>
-                    <input type="email" v-model="emailAdd" placeholder="Email address">
+                    <input type="email" v-model="payload.emailAdd" placeholder="Email address">
                     <br>
                     <label>Password:</label>
-                    <input type="password" v-model="userPass" placeholder="Password">
+                    <input type="password" v-model="payload.userPass" placeholder="Password">
                     <br>
                     <button type="submit">LOGIN</button>
                 </form>
-                DONT HAVE AN ACCOUNT? <a href="">REGISTER</a>
+                DONT HAVE AN ACCOUNT? <a href="/register">REGISTER</a>
             </div>
         </center>
     </div>
 </template>
 
 <script>
-import Swal from 'sweetalert2'
-    export default {
-        
-        data(){
-            return{
-                emailAdd: '',
-                userPass: ''
-            }
-        },
-        methods:{
-            async Login(){
-                console.log("reached")
-                try{
-                    const payload = {
-                        emailAdd: this.emailAdd,
-                        userPass: this.userPass
-                    }
-                    const res = await this.$store.dispatch("login", payload)
-                    if (res){
-                        await Swal.fire({
-                            icon: 'success',
-                            title: "Login successful",
-                            text: "You have logged in successfully"
-                        })
-                        this.$router.push("/")
-                    } else{
-                        await Swal.fire({
-                            icon: "error",
-                            title: "Login failed",
-                            text:"Login failed :("
-                        })
-                    }
-                } catch(e){
-                    console.log(e)
-                }
-            }
-        }
-
-    }
+import { useCookies } from 'vue3-cookies';
+const { cookies } = useCookies()
+export default {
+  data() {
+    return {
+      payload: {
+        emailAdd: "",
+        userPass: "",
+      },
+    };
+  },
+  computed: {
+    user() {
+      return this.$store.state.user;
+    },
+  },
+  methods: {
+    login() {
+      this.$store.dispatch("login", this.payload);
+    },
+  },
+  beforeCreate() {
+    this.$store.dispatch("fetchUsers");
+  },
+  mounted() {
+    console.log(cookies.get("RealUser"));
+ },
+};
 </script>
 
 <style scoped>

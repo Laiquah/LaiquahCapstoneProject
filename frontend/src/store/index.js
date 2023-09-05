@@ -1,7 +1,10 @@
 import { createStore } from 'vuex'
 import axios from 'axios';
-import sweet from 'sweetalert2'
-import Cookies from 'js-cookie'
+import swal from 'sweetalert';
+import { useCookies } from 'vue3-cookies';
+const { cookies } = useCookies()
+import router from '@/router'
+import AuthenticateUser from '@/services/AuthenticateUser';
 const miniURL = "https://capstone-api-ug52.onrender.com/"
 
 export default createStore({
@@ -92,24 +95,57 @@ export default createStore({
         context.commit("setMsg", "an error occured")
       }
     },
-    async login(context, payload){
-      const res = await axios.post(`${miniURL}login`, payload)
-      const { err, msg, token, cResult } = res.data
-      console.log("res.data")
-      if(msg === "You are providing the wrong email or password"){
-        context.commit("setMsg", "Login Failed")
-      } else if(msg === "Logged in successfully" && cResult){
-        context.commit("setLogStatus", "Logged in")
-        context.commit("setUser", cResult)
-        Cookies.set("Logged", token, {
-          expires: 2
-        })
-      } else if(err){
-        context.commit("setMsg", "Login Failed")
+    async login(context, payload) {
+      try {
+        const { msg, token, cResult } = (
+          await axios.post(`${miniURL}login`, payload)
+        ).data;
+        if (cResult) {
+          context.commit("setUser", { cResult, msg });
+          cookies.set("RealUser", { msg, token, cResult });
+          AuthenticateUser.applyToken(token);
+          swal({
+            title: msg,
+            text: `Welcome back ${cResult?.firstName} ${cResult?.lastName}`,
+            icon: "success",
+            timer: 2000,
+          });
+          router.push({ name: 'home' });
+        } else {
+          swal({
+            title: "Error",
+            text: msg,
+            icon: "error",
+            timer: 2000,
+          });
+        }
+      } catch (e) {
+        context.commit("setMsg", "An error has occured");
       }
     },
-    async register(context, payload){
-      
+    async regUser(context, payload){
+      try{
+        const { msg } = (await axios.post(`${miniURL}register`, payload)).data
+        if ( msg ) {
+          swal({
+            title: "register",
+            text: msg,
+            icon: "success",
+            timer: 3000
+          })
+          context.dispatch("fetchUsers")
+          router.push({ name: 'login' })
+        } else {
+          swal({
+            title: "error",
+            text: msg,
+            icon: "unsuccessful",
+            timer: 3000
+          })
+        }
+      } catch (e) {
+        console.log("err")
+      }
     },
     async updateUser(context, payload) {
       console.log(payload)
@@ -199,7 +235,15 @@ export default createStore({
       }
     },
     addToCart({ commit }, product) {
-      commit('addToCart', product)
+      if ( product ){
+        commit('addToCart', product)
+      } else {
+        swal({
+          title: "added to cart",
+          text: "product successfully added to cart",
+          icon: "success",
+        })
+      }
     }
   },
   modules: {

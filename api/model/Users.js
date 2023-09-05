@@ -78,7 +78,7 @@ class Users {
                 SELECT 
                 userID, firstName, lastName, age, gender, emailAdd, userRole, userURL, userPass
                 FROM Users
-                WHERE emailAdd = ?
+                WHERE emailAdd = '${emailAdd}'
             `;
         db.query(query, [emailAdd], async (err, result) => {
           if (err) {

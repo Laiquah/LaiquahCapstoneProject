@@ -1,5 +1,6 @@
 import { createStore } from 'vuex'
 import axios from 'axios';
+import sweet from 'sweetalert2'
 import Cookies from 'js-cookie'
 const miniURL = "https://capstone-api-ug52.onrender.com/"
 
@@ -92,8 +93,9 @@ export default createStore({
       }
     },
     async login(context, payload){
-      const {res} = await axios.post(`${miniURL}login`, payload)
+      const res = await axios.post(`${miniURL}login`, payload)
       const { err, msg, token, cResult } = res.data
+      console.log("res.data")
       if(msg === "You are providing the wrong email or password"){
         context.commit("setMsg", "Login Failed")
       } else if(msg === "Logged in successfully" && cResult){
@@ -107,16 +109,7 @@ export default createStore({
       }
     },
     async register(context, payload){
-      const {res} = await axios.post(`${miniURL}login`, payload)
-      const { err, msg, cResult } = res.data
-      if(msg === "You are providing the wrong email or password"){
-        context.commit("setMsg", "Register Unsuccessful")
-      } else if(msg === "Logged in successfully" && cResult){
-        context.commit("setRegisterStatus", "Logged in")
-        context.commit("setUser", cResult)
-      } else if(err){
-        context.commit("setMsg", "Login Failed")
-      }
+      
     },
     async updateUser(context, payload) {
       console.log(payload)

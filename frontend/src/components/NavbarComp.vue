@@ -41,7 +41,7 @@
               <router-link to="/cart"><i class="bi bi-cart-check" id="person"></i></router-link>
             </li>
             <li class="nav-item">
-              <router-link to="/profile">LOGOUT</router-link>
+              <router-link to="">LOGOUT</router-link>
             </li>
           </ul>
         </div>

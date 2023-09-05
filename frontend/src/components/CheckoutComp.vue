@@ -48,7 +48,7 @@
                         </div>
                       </div>
                       <center>
-                          <button class="purchase--btn" @click="$router.push('/thank')">Submit</button>
+                          <button class="purchase--btn" @click.prevent="thank">Submit</button>
                       </center>
                     </form>
                 </div>

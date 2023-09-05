@@ -53,11 +53,6 @@ const routes = [
     component: () => import('../views/CheckoutView.vue')
   },
   {
-    path: '/thank',
-    name: 'ThankYouView',
-    component: () => import('../views/ThankView.vue')
-  },
-  {
     path: '/login',
     name: 'LoginView',
     component: () => import('../views/LoginView.vue')

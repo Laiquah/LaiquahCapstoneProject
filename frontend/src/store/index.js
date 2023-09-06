@@ -100,6 +100,7 @@ export default createStore({
         const { msg, token, cResult } = (
           await axios.post(`${miniURL}login`, payload)
         ).data;
+        console.log("Response: ", msg, token, cResult)
         if (cResult) {
           context.commit("setUser", { cResult, msg });
           cookies.set("RealUser", { msg, token, cResult });

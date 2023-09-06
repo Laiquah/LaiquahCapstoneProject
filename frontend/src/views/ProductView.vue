@@ -1,14 +1,37 @@
 <template>
   <div>
-    <form class="d-flex mb-2 searchBTN" role="search" @submit.prevent="searchProducts">
-      <input class="form-control" type="search" id="search" placeholder="Search" aria-label="Search" v-model="searchProducts" />
-  </form>
     <h1 class="heading">PRODUCTS</h1>
+    <form
+      class="d-flex mb-2 searchBTN"
+      role="search"
+      @submit.prevent="searchProducts"
+    >
+      <input
+        class="form-control"
+        type="search"
+        id="search"
+        placeholder="Search"
+        aria-label="Search"
+        v-model="searchProducts"
+      />
+    </form>
+    <div class="sort-dropdown">
+      <label for="sort" id="sort2">Sort by: </label>
+      <select id="sort" v-model="sortBy">
+        <option value="default">Default</option>
+        <option value="price">Price</option>
+        <option value="category">Category</option>
+        <option value="alphabetical">Alphabetical</option>
+      </select>
+      <button class="btn" @click="toggleSortDirection">
+        {{ sort === "asc" ? "ascending" : "descending" }}
+      </button>
+    </div>
     <div
       class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-md-4"
       v-if="products"
     >
-      <div class="col" v-for="product in products" :key="product">
+      <div class="col" v-for="product in filteredProducts" :key="product">
         <div class="card">
           <center>
             <img
@@ -51,7 +74,7 @@
               </select>
             </div>
             <div class="buttons">
-              <button  @click="viewProduct(product.prodID)">VIEW MORE</button>
+              <button @click="viewProduct(product.prodID)">VIEW MORE</button>
               <button @click="addToCart(product)">ADD TO CART</button>
             </div>
           </div>
@@ -67,7 +90,6 @@
 <script>
 import Spinner from "../components/SpinnerComp.vue";
 export default {
-  props: ['products'],
   components: {
     Spinner,
   },
@@ -76,17 +98,29 @@ export default {
       return this.$store.state.products;
     },
     filteredProducts() {
-      let filtered = this.products
-      if(this.searchProducts !== ''){
-        filtered = filtered.filter(product => product.prodName.toLowerCase().includes(this.searchProducts.toLowerCase()) || 
-        product.category.toLowerCase().includes(this.searchProducts.toLowerCase()))
+      let filtered = this.products;
+      if (this.searchProducts !== "") {
+        filtered = filtered.filter(
+          (product) =>
+            product.prodName
+              .toLowerCase()
+              .includes(this.searchProducts.toLowerCase()) ||
+            product.category
+              .toLowerCase()
+              .includes(this.searchProducts.toLowerCase())
+        );
       }
-      return filtered
+      if(this.sortBy === 'prodPrice'){
+        filtered = filtered.sort((a, b)=> (this.sort === 'asc' ? a.prodPrice - b.prodPrice : b.prodPricerice - a.prodPrice))
+      } else if(this.sortBy === 'category'){
+        filtered = filtered.sort((a, b)=> a.category.localeCompare(b.category) * (this.sort === 'asc' ? 1 : -1))
+      } else if(this.sortBy === 'alphabetical'){
+        filtered = filtered.sort((a, b)=> a.prodName.localeCompare(b.prodName) * (this.sort === 'asc' ? 1 : -1))
+      }
+      return filtered;
     },
   },
-  mounted() {
-    this.$store.dispatch("fetchProducts");
-  },
+
   methods: {
     viewProduct(prodID) {
       const chosenProd = this.products.find(
@@ -96,17 +130,22 @@ export default {
       this.$router.push({ name: "ProductView", params: { prodID: prodID } });
     },
     addToCart(product) {
-      this.$store.dispatch('addToCart', product)
+      this.$store.dispatch("addToCart", product);
     },
     searchProducts(e) {
-      e.preventDefault()
-      this.searchProducts = this.searchProducts.trim()
-    }
+      e.preventDefault();
+      this.searchProducts = this.searchProducts.trim();
+    },
+    toggleSortDirection() {
+      this.sort = this.sort === 'asc' ? 'desc' : 'asc'
+    },
   },
   data() {
     return {
-      searchProducts: ''
-    }
+      searchProducts: "",
+      sortBy: "",
+      sort: ""
+    };
   },
 };
 </script>
@@ -157,17 +196,17 @@ h5 {
 }
 
 button {
-  padding: .5rem;
+  padding: 0.5rem;
   width: 10rem;
   border: 2px solid #759e8f;
-  background-color: #5C8374;
+  background-color: #5c8374;
   color: white;
   margin-bottom: 1rem;
   font-weight: bolder;
   border-radius: 5rem;
 }
 
-button:hover{
+button:hover {
   background-color: #93b1a6;
 }
 
@@ -185,24 +224,24 @@ button:hover{
   font-weight: bolder;
 }
 
-.card{
+.card {
   border: 2px solid #759e8f;
   background-color: #93b1a6;
-  padding:.4rem;
+  padding: 0.4rem;
 }
 
-@media screen and (max-width:300px) {
-  .row{
+@media screen and (max-width: 300px) {
+  .row {
     --bs-gutter-x: 0;
   }
 }
 
-@media screen and (max-width:700px) {
-  .row{
+@media screen and (max-width: 700px) {
+  .row {
     --bs-gutter-x: 0;
   }
-   
-  .col{
+
+  .col {
     width: 50%;
   }
 }

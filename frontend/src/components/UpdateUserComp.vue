@@ -86,6 +86,7 @@
               type="button"
               class="btn"
               @click="updateProduct(user.userID)"
+              data-bs-dismiss="modal"
             >
               Save changes
             </button>

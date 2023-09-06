@@ -98,7 +98,7 @@
             <button type="button" class="btn" data-bs-dismiss="modal">
               Close
             </button>
-            <button type="button" class="btn" @click="createProduct">
+            <button type="button" class="btn" @click="createProduct" data-bs-dismiss="modal">
               Save changes
             </button>
           </div>

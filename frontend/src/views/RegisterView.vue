@@ -7,33 +7,33 @@
           <div class="card">
             <form @submit.prevent="register">
               <label>First name:</label>
-              <input placeholder="first name" v-model="payload.firstName" />
+              <input placeholder="first name" type="name" required v-model="payload.firstName" />
               <br />
               <label>Last name:</label>
-              <input placeholder="last name" v-model="payload.lastName" />
+              <input placeholder="last name" type="name" required v-model="payload.lastName" />
               <br />
               <label>Age</label>
-              <input placeholder="age" v-model="payload.age" />
+              <input placeholder="age" type="number" required v-model="payload.age" />
               <br />
               <label>Gender</label>
-              <input placeholder="gender" v-model="payload.gender" />
+              <input placeholder="gender" type="gender" required v-model="payload.gender" />
               <br />
               <label>Role:</label>
-              <input placeholder="role" v-model="payload.userRole" />
-              <br />
+              <input placeholder="role" type="role" required v-model="payload.userRole" />
+              <br /> 
               <label>Email:</label>
-              <input placeholder="email address" v-model="payload.emailAdd" />
+              <input placeholder="email address" type="email" required v-model="payload.emailAdd" />
               <br />
               <label>Password:</label>
-              <input placeholder="password" v-model="payload.userPass" />
+              <input placeholder="password" type="password" required v-model="payload.userPass" />
               <br />
               <label>Profile picture:</label>
-              <input placeholder="profile picture" v-model="payload.userURL" />
+              <input placeholder="profile picture" type="picture" v-model="payload.userURL" />
               <br />
               <center>
                 <button type="submit">REGISTER</button>
               </center>
-              ALREADY HAVE AN ACCOUNT?<a href="">LOGIN</a>
+              ALREADY HAVE AN ACCOUNT?<a href="/login">LOGIN</a>
             </form>
           </div>
         </center>

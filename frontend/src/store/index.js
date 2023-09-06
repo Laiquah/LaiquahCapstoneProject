@@ -239,7 +239,7 @@ export default createStore({
       if ( product ){
         commit('addToCart', product)
       } else {
-        swal({
+        sweet.fire({
           title: "added to cart",
           text: "product successfully added to cart",
           icon: "success",

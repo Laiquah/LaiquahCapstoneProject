@@ -5,10 +5,12 @@
             <div class="card">
                 <form @submit.prevent="login">
                     <label>Email address:</label>
-                    <input type="email" v-model="payload.emailAdd" placeholder="Email address">
+                    <input type="email" v-model="payload.emailAdd" placeholder="Email address" oninvalid="this.setCustomValidity('please enter your email')"
+                    oninput="this.setCustomValidity('')" required>
                     <br>
                     <label>Password:</label>
-                    <input type="password" v-model="payload.userPass" placeholder="Password">
+                    <input type="password" v-model="payload.userPass" placeholder="Password" oninvalid="this.setCustomValidity('please enter your password')"
+                    oninput="this.setCustomValidity('')" required>
                     <br>
                     <button type="submit">LOGIN</button>
                 </form>

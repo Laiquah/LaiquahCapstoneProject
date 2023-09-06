@@ -46,7 +46,7 @@ class Users {
       }
       async register(req, res) {
         const data = req.body;
-        data.userPass = await hash(data.userPass, 15);
+        data.userPass = await hash(data.userPass, 10);
         const user = {
           emailAdd: data.emailAdd,
           userPass: data.userPass,
@@ -117,12 +117,17 @@ class Users {
         });
       }
       updateUser(req, res) {
+        const data = req.body;
+        if (data.userPass) {
+          data.userPass = hashSync(data.userPass, 10)
+        }
+
         const query = `
                 UPDATE Users 
                 SET ? 
                 WHERE userID = ${req.params.id}
             `;
-        db.query(query, [req.body], (err) => {
+        db.query(query, [data], (err) => {
           if (!err) {
             res.json({
               status: res.statusCode,

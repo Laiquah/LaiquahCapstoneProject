@@ -104,7 +104,7 @@ class Users {
                 res.json({
                   msg: "Logged in successfully",
                   token,
-                  cResult: result,
+                  cResult: result[0],
                 });
               } else {
                 res.json({

@@ -1,6 +1,6 @@
 import { createStore } from 'vuex'
 import axios from 'axios';
-import swal from 'sweetalert';
+import sweet from 'sweetalert';
 import { useCookies } from 'vue3-cookies';
 const { cookies } = useCookies()
 import router from '@/router'
@@ -104,7 +104,7 @@ export default createStore({
           context.commit("setUser", { cResult, msg });
           cookies.set("RealUser", { msg, token, cResult });
           AuthenticateUser.applyToken(token);
-          swal({
+          sweet({
             title: msg,
             text: `Welcome back ${cResult?.firstName} ${cResult?.lastName}`,
             icon: "success",
@@ -112,7 +112,7 @@ export default createStore({
           });
           router.push({ name: 'home' });
         } else {
-          swal({
+          sweet({
             title: "Error",
             text: msg,
             icon: "error",
@@ -127,16 +127,16 @@ export default createStore({
       try{
         const { msg } = (await axios.post(`${miniURL}register`, payload)).data
         if ( msg ) {
-          swal({
+          sweet({
             title: "register",
             text: msg,
             icon: "success",
             timer: 3000
           })
           context.dispatch("fetchUsers")
-          router.push({ name: 'login' })
+          router.push({ name: 'LoginView' })
         } else {
-          swal({
+          sweet({
             title: "error",
             text: msg,
             icon: "unsuccessful",

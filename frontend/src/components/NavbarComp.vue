@@ -32,16 +32,13 @@
             <li class="nav-item">
               <router-link to="/register">REGISTER</router-link>
             </li>
-            <li class="nav-item">
-              <router-link to="/profile"><i class="bi bi-person" id="person"></i></router-link>
-            </li>
           </ul>
           <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <router-link to="/cart"><i class="bi bi-cart-check" id="person"></i></router-link>
+              <router-link to="/profile"><i class="bi bi-person" id="person"></i></router-link>
             </li>
             <li class="nav-item">
-              <router-link to="">LOGOUT</router-link>
+              <router-link to="/cart"><i class="bi bi-cart-check" id="person"></i></router-link>
             </li>
           </ul>
         </div>

@@ -1,31 +1,29 @@
 <template>
-    <div>
-        
-    </div>
+  <div>
+    <center>
+      <update :user="user" />
+      <button @click="deleteUser(user.userID)">delete</button>
+    </center>
+  </div>
 </template>
 
 <script>
-    export default {
-        // data() {
-        //     return {
-        //         profile: {
-        //             firstName: "",
-        //             lastName: "",
-        //             age: "",
-        //             gender: "",
-        //             emailAdd: "",
-        //             userRole: "",
-        //             userPass: "",
-        //             userURL: "",
-        //         }
-        //     }
-        // },
-        // created() {
-        //     this.profile = this.$cookie.get('profile')
-        // }
-    }
+import update from "../components/UpdateUserComp.vue";
+export default {
+  components: {
+    update,
+  },
+  methods: {
+    deleteUser(id) {
+      if (confirm("Are you sure you want to delete this user?")) {
+        this.$store.dispatch("deleteUser", id);
+        setTimeout(() => {
+          location.reload();
+        }, 500);
+      }
+    },
+  },
+};
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

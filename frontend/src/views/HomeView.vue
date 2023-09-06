@@ -54,7 +54,6 @@
             <img src="https://i.postimg.cc/MGpmGKpR/download.jpg" alt="gas stoves" loading="lazy" class="img-fluid">
           </div>
         </div>
-        <button class="btn1" href="/about">ABOUT US</button>
       </div>
   </div>
 </template>

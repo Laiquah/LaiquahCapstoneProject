@@ -60,6 +60,9 @@ export default createStore({
     },
     removeFromCart(state, index) {
       state.cart.slipce(index, 1)
+    },
+    clearUser(state) {
+      state.user = null
     }
   },
   actions: {
@@ -245,6 +248,10 @@ export default createStore({
           icon: "success",
         })
       }
+    },
+    logout({ commit }) {
+      commit('clearUser')
+      cookies.remove('RealUser')
     }
   },
   modules: {

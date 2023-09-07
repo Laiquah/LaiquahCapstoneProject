@@ -1,10 +1,35 @@
 <template>
   <div>
-    <h1 class="heading">WELCOME TO YOUR PROFILE</h1>
+    <div v-if="user">
+      <h1 class="heading">welcome to your profile {{ user.firstName }} {{ user.lastName }}</h1>
+      <img :src="user.userURL" :alt="user.firstName" loading="lazy" class="img-fluid">
+      <div class="userinformation">
+        <label>name:</label>
+        <p>{{ user.firstName }}</p>
+        <br>
+        <label>surname:</label>
+        <p>{{ user.lastName }}</p>
+        <br>
+        <label>age:</label>
+        <p>{{ user.age }}</p>
+        <br>
+        <label>gender:</label>
+        <p>{{ user.gender }}</p>
+        <br>
+        <label>email:</label>
+        <p>{{ user.emailAdd }}</p>
+        <br>
+        <label>role:</label>
+        <p>{{ user.userRole }}</p>
+        <br>
+        <label>password:</label>
+        <p>{{ user.userPass }}</p>
+      </div>
+    </div>
     <center>
       <button @click="logout">logout</button>
       <br>
-      <!-- <EditProfile :userData="userData"/> -->
+      <button>edit</button>
       <br>
       <button @click="deleteUser(user.userID)">delete</button>
     </center>
@@ -12,12 +37,23 @@
 </template>
 
 <script>
-// import EditProfile from "../components/EditProfileComp.vue";
+// import edit from '../components/UpdateUserComp.vue'
 import { useCookies } from 'vue3-cookies';
 const { cookies } = useCookies()
 export default {
+  data() {
+    return{
+      user: null
+    }
+  },
+  mounted() {
+    const storedUser = localStorage.getItem("userData")
+    if (storedUser) {
+      this.user = JSON.parse(storedUser)
+    }
+  },
   components: {
-    // EditProfile,
+    // edit
   },
   computed: {
     user() {
@@ -47,6 +83,11 @@ export default {
 </script>
 
 <style scoped>
+.img-fluid{
+  border-radius: 50rem;
+  width: 20rem;
+}
+
 button {
   padding: 0.5rem;
   width: 10rem;

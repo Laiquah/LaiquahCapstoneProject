@@ -256,7 +256,7 @@ export default createStore({
     logout({ commit }) {
       commit('clearUser')
       cookies.remove('RealUser')
-    }
+    },
   },
   modules: {
   }

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <!-- Button trigger modal -->
+     <!-- Button trigger modal -->
     <button
       type="button"
       class="btn"
@@ -128,6 +128,7 @@ export default {
     openEditModal(id) {
       console.log("reached");
       this.editingUserID = id;
+      console.log(this.$store.state.users)
       this.editingUser = {
         ...this.$store.state.users.find((user) => user.userID === id),
       };
@@ -149,7 +150,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style scoped> 
 input {
     width: 100%;
     height: 3rem;
@@ -170,4 +171,4 @@ input {
   button:hover{
     background-color: #93b1a6;
   }
-</style>
+</style> 

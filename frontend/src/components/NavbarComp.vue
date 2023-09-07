@@ -23,7 +23,7 @@
             <li class="nav-item">
               <router-link to="/contact">CONTACT</router-link>
             </li>
-            <li class="nav-item">
+            <li class="nav-item" v-if="user ? user.userRole === 'admin' : null">
               <router-link to="/admin">ADMIN</router-link>
             </li>
             <li class="nav-item">
@@ -53,8 +53,8 @@ const {cookies} = useCookies();
   export default {
   computed: {
     user() {
-      return this.$store.state.user ||
-      cookies.get('RealUser')
+      return this.$store.state.user
+      console.log(user)
     },
     result() {
       return this.user?.result
@@ -62,6 +62,9 @@ const {cookies} = useCookies();
     isAdmin() {
       return this.result?.userRole?.toLowerCase() === "admin"
     }
+  }, 
+  created() {
+    const user = JSON.parse(localStorage.getItem('userData')) 
   }
 }
 ;

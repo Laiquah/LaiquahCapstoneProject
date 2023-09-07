@@ -17,6 +17,12 @@ export default {
   mounted() {
     this.$store.dispatch("fetchProducts");
   },
+  created(){
+    const data = JSON.parse(localStorage.getItem('userData'))
+    if(data){
+      this.$store.commit("setUser", data)
+    }
+  }
 };
 </script>
 

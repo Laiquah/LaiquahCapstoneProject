@@ -69,8 +69,8 @@ export default {
   input{
     width: 100%;
     height: 2.5rem;
-    border: 3px solid #5c8374;
-    border-radius: 2rem;
+    border: 2px solid #5c8374;
+    border-radius: .5rem;
   }
 
   button {

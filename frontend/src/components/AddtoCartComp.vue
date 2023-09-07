@@ -18,7 +18,7 @@
                             <td><img :src="product.prodURL" :alt="product.prodName" loading="lazy" class="img-fluid"></td>
                             <td>{{ product.quantity }}</td>
                             <td>R{{ product.prodPrice }}</td>
-                            <td><button @click="removeFromCart(index)">Remove</button></td>
+                            <td><button @click="removeFromCart(cart)">Remove</button></td>
                         </tr>
                     </tbody>
             </table>
@@ -35,8 +35,9 @@
             }
         },
         methods: {
-            removeFromCart(index) {
-                this.$store.commit('removeFromCart', index)
+            removeFromCart(cart) {
+                console.log("reached");
+                this.$store.commit('removeFromCart', cart)
             }
         }
     }

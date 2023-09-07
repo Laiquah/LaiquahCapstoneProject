@@ -58,8 +58,11 @@ export default createStore({
     addToCart(state, product) {
       state.cart.push(product)
     },
-    removeFromCart(state, index) {
-      state.cart.slipce(index, 1)
+    removeFromCart(state, cart) {
+      const index = state.cart.indexOf(cart);
+      if (index !== -1) {
+        state.cart.splice(index, 1);
+      }
     },
     clearUser(state) {
       state.user = null
@@ -106,6 +109,7 @@ export default createStore({
         console.log("Response: ", msg, token, cResult)
         if (cResult) {
           context.commit("setUser", { cResult, msg });
+          localStorage.setItem("userData", JSON.stringify(cResult))
           cookies.set("RealUser", { msg, token, cResult });
           AuthenticateUser.applyToken(token);
           sweet({

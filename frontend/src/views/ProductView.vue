@@ -211,7 +211,6 @@ button:hover {
 }
 
 #search {
-  margin-top: 2rem;
   width: 20rem;
   display: flex !important;
   justify-content: center !important;

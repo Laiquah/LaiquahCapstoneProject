@@ -17,17 +17,32 @@ const routes = [
   {
     path: '/about',
     name: 'about',
-    component: () => import('../views/AboutView.vue')
+    component: () => import('../views/AboutView.vue'),
+    beforeEnter() {
+      if ( !cookies.get ('RealUser')) {
+        router.push({ name: 'LoginView' })
+      }
+    }
   },
   {
     path: '/products',
     name: 'products',
-    component: () => import('../views/ProductView.vue')
+    component: () => import('../views/ProductView.vue'),
+    beforeEnter() {
+      if ( !cookies.get ('RealUser')) {
+        router.push({ name: 'LoginView' })
+      }
+    }
   },
   {
     path: '/help',
     name: 'help',
-    component: () => import('../views/FAQsView.vue')
+    component: () => import('../views/FAQsView.vue'),
+    beforeEnter() {
+      if ( !cookies.get ('RealUser')) {
+        router.push({ name: 'LoginView' })
+      }
+    }
   },
   {
     path: '/contact',
@@ -37,12 +52,22 @@ const routes = [
   {
     path: '/admin',
     name: 'admin',
-    component: () => import('../views/AdminView.vue')
+    component: () => import('../views/AdminView.vue'),
+    beforeEnter() {
+      if ( !cookies.get ('RealUser')) {
+        router.push({ name: 'LoginView' })
+      }
+    }
   },
   {
     path: '/profile',
     name: 'profile',
-    component: () => import('../views/ProfileView.vue')
+    component: () => import('../views/ProfileView.vue'),
+    beforeEnter() {
+      if ( !cookies.get ('RealUser')) {
+        router.push({ name: 'LoginView' })
+      }
+    }
   },
   {
     path: '/product/:prodID',
@@ -52,7 +77,12 @@ const routes = [
   {
     path: '/cart',
     name: 'addToCartView',
-    component: () => import('../views/AddToCartView.vue')
+    component: () => import('../views/AddToCartView.vue'),
+    beforeEnter() {
+      if ( !cookies.get ('RealUser')) {
+        router.push({ name: 'LoginView' })
+      }
+    }
   },
   {
     path: '/checkout',

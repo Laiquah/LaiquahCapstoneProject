@@ -27,10 +27,10 @@
               <router-link to="/admin">ADMIN</router-link>
             </li>
             <li class="nav-item">
-              <router-link to="/login">LOGIN</router-link>
+              <router-link to="/login" v-if="!user">LOGIN</router-link>
             </li>
             <li class="nav-item">
-              <router-link to="/register">REGISTER</router-link>
+              <router-link to="/register" v-if="!user">REGISTER</router-link>
             </li>
           </ul>
           <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
@@ -57,7 +57,7 @@ const {cookies} = useCookies();
       console.log(user)
     },
     result() {
-      return this.user?.result
+      return this.user?.results
     },
     isAdmin() {
       return this.result?.userRole?.toLowerCase() === "admin"

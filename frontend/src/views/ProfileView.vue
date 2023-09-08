@@ -1,36 +1,135 @@
 <template>
   <div>
     <div v-if="user">
-      <h1 class="heading">welcome to your profile {{ user.firstName }} {{ user.lastName }}</h1>
-      <img :src="user.userURL" :alt="user.firstName" loading="lazy" class="img-fluid">
+      <h1 class="heading">
+        welcome to your profile {{ user.firstName }} {{ user.lastName }}
+      </h1>
+      <img
+        :src="user.userURL"
+        :alt="user.firstName"
+        loading="lazy"
+        class="img-fluid"
+      />
       <div class="userinformation">
         <label>name:</label>
         <p>{{ user.firstName }}</p>
-        <br>
+        <br />
         <label>surname:</label>
         <p>{{ user.lastName }}</p>
-        <br>
+        <br />
         <label>age:</label>
         <p>{{ user.age }}</p>
-        <br>
+        <br />
         <label>gender:</label>
         <p>{{ user.gender }}</p>
-        <br>
+        <br />
         <label>email:</label>
         <p>{{ user.emailAdd }}</p>
-        <br>
+        <br />
         <label>role:</label>
         <p>{{ user.userRole }}</p>
-        <br>
+        <br />
         <label>password:</label>
         <p>{{ user.userPass }}</p>
       </div>
     </div>
     <center>
       <button @click="logout">logout</button>
-      <br>
-      <button>edit</button>
-      <br>
+      <br />
+      <!-- Button trigger modal -->
+      <button
+        type="button"
+        class="btn"
+        @click="openEditModal(userData.userID)"
+        data-bs-toggle="modal"
+        :data-bs-target="'#texampleModal' + userData.userID"
+      >
+        edit
+      </button>
+
+      <!-- Modal -->
+      <div
+        class="modal fade"
+        :id="'texampleModal' + userData.userID"
+        tabindex="-1"
+        :aria-labelledby="'texampleModalLabel' + userData.userID"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="texampleModalLabel3">
+                update your information
+              </h1>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <label>first name:</label>
+              <input
+                type="text"
+                placeholder="first name"
+                v-model="editingUser.firstName"
+              />
+              <label>last name:</label>
+              <input
+                type="text"
+                placeholder="last name"
+                v-model="editingUser.lastName"
+              />
+              <label>age:</label>
+              <input type="text" placeholder="age" v-model="editingUser.age" />
+              <label>gender:</label>
+              <input
+                type="text"
+                placeholder="gender"
+                v-model="editingUser.gender"
+              />
+              <label>email address:</label>
+              <input
+                type="text"
+                placeholder="email address"
+                v-model="editingUser.emailAdd"
+              />
+              <label>user role:</label>
+              <input
+                type="text"
+                placeholder="role"
+                v-model="editingUser.userRole"
+              />
+              <label>user profile:</label>
+              <input
+                type="text"
+                placeholder="profile image"
+                v-model="editingUser.userURL"
+              />
+              <label>user password:</label>
+              <input
+                type="text"
+                placeholder="password"
+                v-model="editingUser.userPass"
+              />
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn" data-bs-dismiss="modal">
+                Close
+              </button>
+              <button
+                type="button"
+                class="btn"
+                @click="updateUser(userData.userID)"
+              >
+                Save changes
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br />
       <button @click="deleteUser(user.userID)">delete</button>
     </center>
   </div>
@@ -38,18 +137,39 @@
 
 <script>
 // import edit from '../components/UpdateUserComp.vue'
-import { useCookies } from 'vue3-cookies';
-const { cookies } = useCookies()
+import { useCookies } from "vue3-cookies";
+const { cookies } = useCookies();
 export default {
   data() {
-    return{
-      user: null
-    }
+    return {
+      user: null,
+      editingUser: {
+        ...this.userData,
+      },
+      editingUserID: null,
+      model: {
+        user: {
+          firstName: "",
+          lastName: "",
+          age: "",
+          gender: "",
+          emailAdd: "",
+          userRole: "",
+          userURL: "",
+          userPass: "",
+        },
+      },
+    };
   },
-  mounted() {
-    const storedUser = localStorage.getItem("userData")
+  created() {
+    const storedUser = localStorage.getItem("userData");
     if (storedUser) {
-      this.user = JSON.parse(storedUser)
+      this.user = JSON.parse(storedUser);
+    }
+
+    const data = JSON.parse(localStorage.getItem("userData"));
+    if (data) {
+      this.$store.commit("setUser", data);
     }
   },
   components: {
@@ -59,6 +179,9 @@ export default {
     user() {
       return this.$store.state.user;
     },
+    thisUser() {
+            return this.$store.state.userData;
+        },
   },
   methods: {
     deleteUser(id) {
@@ -70,20 +193,20 @@ export default {
       }
     },
     logout() {
-      console.log("reached")
-      cookies.remove("RealUser")
-      const data = JSON.parse(localStorage.getItem("userData"))
-      if(data){
-        localStorage.removeItem("userData")
+      console.log("reached");
+      cookies.remove("RealUser");
+      const data = JSON.parse(localStorage.getItem("userData"));
+      if (data) {
+        localStorage.removeItem("userData");
       }
-      this.$router.push("/login")
-    }
+      this.$router.push("/login");
+    },
   },
 };
 </script>
 
 <style scoped>
-.img-fluid{
+.img-fluid {
   border-radius: 50rem;
   width: 20rem;
 }

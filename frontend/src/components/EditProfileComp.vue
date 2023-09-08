@@ -1,51 +1,87 @@
 <template>
     <div>
         <!-- Button trigger modal -->
-        <button type="button" class="btn" @click="openEditModal(userData.userID)" data-bs-toggle="modal"
-            :data-bs-target="'#texampleModal' + userData.userID">
-            edit
-        </button>
+      <button
+      type="button"
+      class="btn1"
+      @click="openEditModal(thisUser.userID)"
+      data-bs-toggle="modal"
+      :data-bs-target="'#mexampleModal' + editingUser.userID"
+    >
+      edit
+    </button>
 
-        <!-- Modal -->
-        <div class="modal fade" :id="'texampleModal' + userData.userID" tabindex="-1"
-            :aria-labelledby="'texampleModalLabel' + userData.userID" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="texampleModalLabel3">
-                            update your information
-                        </h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <label>first name:</label>
-                        <input type="text" placeholder="first name" v-model="editingUser.firstName" />
-                        <label>last name:</label>
-                        <input type="text" placeholder="last name" v-model="editingUser.lastName" />
-                        <label>age:</label>
-                        <input type="text" placeholder="age" v-model="editingUser.age" />
-                        <label>gender:</label>
-                        <input type="text" placeholder="gender" v-model="editingUser.gender" />
-                        <label>email address:</label>
-                        <input type="text" placeholder="email address" v-model="editingUser.emailAdd" />
-                        <label>user role:</label>
-                        <input type="text" placeholder="role" v-model="editingUser.userRole" />
-                        <label>user profile:</label>
-                        <input type="text" placeholder="profile image" v-model="editingUser.userURL" />
-                        <label>user password:</label>
-                        <input type="text" placeholder="password" v-model="editingUser.userPass" />
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn" data-bs-dismiss="modal">
-                            Close
-                        </button>
-                        <button type="button" class="btn" @click="updateUser(userData.userID)">
-                            Save changes
-                        </button>
-                    </div>
-                </div>
-            </div>
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      :id="'mexampleModal' + editingUser.userID"
+      tabindex="-1"
+      :aria-labelledby="'mexampleModalLabel' + editingUser.userID"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="mexampleModalLabel3">
+              update your information
+            </h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <label>first name:</label>
+            <input
+              type="text"
+              placeholder="first name"
+              v-model="editingUser.firstName"
+            />
+            <label>last name:</label>
+            <input
+              type="text"
+              placeholder="last name"
+              v-model="editingUser.lastName"
+            />
+            <label>age:</label>
+            <input type="text" placeholder="age" v-model="editingUser.age" />
+            <label>gender:</label>
+            <input
+              type="text"
+              placeholder="gender"
+              v-model="editingUser.gender"
+            />
+            <label>email address:</label>
+            <input
+              type="text"
+              placeholder="emailAdd"
+              v-model="editingUser.emailAdd"
+            />
+            <label>user profile:</label>
+            <input
+              type="text"
+              id="test"
+              placeholder="profile image"
+              v-model="editingUser.userURL"
+            />
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn" data-bs-dismiss="modal">
+              Close
+            </button>
+            <button
+              type="button"
+              class="btn"
+              @click="updateUser(editingUser.userID)"
+            >
+              Save changes
+            </button>
+          </div>
         </div>
+      </div>
+    </div>
     </div>
 </template>
 
@@ -53,25 +89,24 @@
 export default {
     props: ["userData"],
     data() {
-        return {
-            editingUser: {
-                ...this.userData,
-            },
-            editingUserID: null,
-            model: {
-                user: {
-                    firstName: "",
-                    lastName: "",
-                    age: "",
-                    gender: "",
-                    emailAdd: "",
-                    userRole: "",
-                    userURL: "",
-                    userPass: ""
-                },
-            },
-        };
-    },
+    return {
+      editingUser: {
+        ...this.thisUser,
+      },
+      editingUserID: null,
+      model:{
+        user: {
+        firstName: "",
+        lastName: "",
+        age: "",
+        gender: "",
+        emailAdd: "",
+        userURL: "",
+      },
+      }
+      
+    };
+  },
     computed: {
         thisUser() {
             return this.$store.state.userData;
@@ -79,18 +114,21 @@ export default {
     },
     methods: {
         openEditModal(id) {
-            this.editingUserID = id;
-        },
-        async updateUser(id) {
-            try {
-                await this.$store.dispatch("updateUser", {
-                        userID: id,
-                        data: { ...this.editingUser },
-                    })
-            } catch (e) {
-                console.log(e)
-            }
-        },
+      this.editingUserID = id;
+    },
+    async updateUser(id) {
+      console.log(this.editingUser)
+      try {
+        await this.$store.dispatch("updateUser", {
+          userID: id,
+          data: { ...this.editingUser },
+        });
+        console.log(this.editingUser)
+        console.log(id)
+      } catch (e) {
+        console.log(e);
+      }
+    },
     },
 };
 </script>

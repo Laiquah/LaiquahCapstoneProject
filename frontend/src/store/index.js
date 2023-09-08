@@ -159,6 +159,7 @@ export default createStore({
       console.log(payload)
       try {
         const res = await axios.patch(`${miniURL}user/${payload.userID}`, payload.data);
+        console.log(res)
         const { msg, err } = res.data
         if(msg){
           context.dispatch("fetchUsers")

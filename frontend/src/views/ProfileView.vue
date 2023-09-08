@@ -4,33 +4,40 @@
       <h1 class="heading">
         welcome to your profile {{ user.firstName }} {{ user.lastName }}
       </h1>
-      <img
-        :src="user.userURL"
-        :alt="user.firstName"
-        loading="lazy"
-        class="img-fluid"
-      />
-      <div class="userinformation">
-        <label>name:</label>
-        <p>{{ user.firstName }}</p>
-        <br />
-        <label>surname:</label>
-        <p>{{ user.lastName }}</p>
-        <br />
-        <label>age:</label>
-        <p>{{ user.age }}</p>
-        <br />
-        <label>gender:</label>
-        <p>{{ user.gender }}</p>
-        <br />
-        <label>email:</label>
-        <p>{{ user.emailAdd }}</p>
-        <br />
-        <label>role:</label>
-        <p>{{ user.userRole }}</p>
-        <br />
-        <label>password:</label>
-        <p>{{ user.userPass }}</p>
+      <div class="row">
+        <div class="col-6">
+          <center>
+            <img
+              :src="user.userURL"
+              :alt="user.firstName"
+              loading="lazy"
+              class="img-fluid"
+            />
+          </center>
+        </div>
+        <div class="col-6">
+          <div class="userinformation">
+            <center>
+              <label>name:</label>
+              <p>{{ user.firstName }}</p>
+              <br />
+              <label>surname:</label>
+              <p>{{ user.lastName }}</p>
+              <br />
+              <label>age:</label>
+              <p>{{ user.age }}</p>
+              <br />
+              <label>gender:</label>
+              <p>{{ user.gender }}</p>
+              <br />
+              <label>email:</label>
+              <p>{{ user.emailAdd }}</p>
+              <br />
+              <label>role:</label>
+              <p>{{ user.userRole }}</p>
+            </center>
+          </div>
+        </div>
       </div>
     </div>
     <center>
@@ -39,10 +46,10 @@
       <!-- Button trigger modal -->
       <button
         type="button"
-        class="btn"
-        @click="openEditModal(userData.userID)"
+        class="btn1"
+        @click="openEditModal(thisUser.userID)"
         data-bs-toggle="modal"
-        :data-bs-target="'#texampleModal' + userData.userID"
+        :data-bs-target="'#mexampleModal' + editingUser.userID"
       >
         edit
       </button>
@@ -50,15 +57,15 @@
       <!-- Modal -->
       <div
         class="modal fade"
-        :id="'texampleModal' + userData.userID"
+        :id="'mexampleModal' + editingUser.userID"
         tabindex="-1"
-        :aria-labelledby="'texampleModalLabel' + userData.userID"
+        :aria-labelledby="'mexampleModalLabel' + editingUser.userID"
         aria-hidden="true"
       >
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h1 class="modal-title fs-5" id="texampleModalLabel3">
+              <h1 class="modal-title fs-5" id="mexampleModalLabel3">
                 update your information
               </h1>
               <button
@@ -73,45 +80,34 @@
               <input
                 type="text"
                 placeholder="first name"
-                v-model="editingUser.firstName"
+                v-model="user.firstName"
               />
               <label>last name:</label>
               <input
                 type="text"
                 placeholder="last name"
-                v-model="editingUser.lastName"
+                v-model="user.lastName"
               />
               <label>age:</label>
-              <input type="text" placeholder="age" v-model="editingUser.age" />
+              <input type="text" placeholder="age" v-model="user.age" />
               <label>gender:</label>
               <input
                 type="text"
                 placeholder="gender"
-                v-model="editingUser.gender"
+                v-model="user.gender"
               />
               <label>email address:</label>
               <input
                 type="text"
-                placeholder="email address"
-                v-model="editingUser.emailAdd"
-              />
-              <label>user role:</label>
-              <input
-                type="text"
-                placeholder="role"
-                v-model="editingUser.userRole"
+                placeholder="emailAdd"
+                v-model="user.emailAdd"
               />
               <label>user profile:</label>
               <input
                 type="text"
+                id="test"
                 placeholder="profile image"
-                v-model="editingUser.userURL"
-              />
-              <label>user password:</label>
-              <input
-                type="text"
-                placeholder="password"
-                v-model="editingUser.userPass"
+                v-model="user.userURL"
               />
             </div>
             <div class="modal-footer">
@@ -121,7 +117,7 @@
               <button
                 type="button"
                 class="btn"
-                @click="updateUser(userData.userID)"
+                @click="updateUser(editingUser.userID)"
               >
                 Save changes
               </button>
@@ -136,29 +132,26 @@
 </template>
 
 <script>
-// import edit from '../components/UpdateUserComp.vue'
 import { useCookies } from "vue3-cookies";
 const { cookies } = useCookies();
 export default {
   data() {
     return {
-      user: null,
       editingUser: {
-        ...this.userData,
+        ...this.thisUser,
       },
       editingUserID: null,
-      model: {
+      model:{
         user: {
-          firstName: "",
-          lastName: "",
-          age: "",
-          gender: "",
-          emailAdd: "",
-          userRole: "",
-          userURL: "",
-          userPass: "",
-        },
+        firstName: "",
+        lastName: "",
+        age: "",
+        gender: "",
+        emailAdd: "",
+        userURL: "",
       },
+      }
+      
     };
   },
   created() {
@@ -176,12 +169,9 @@ export default {
     // edit
   },
   computed: {
-    user() {
+    thisUser() {
       return this.$store.state.user;
     },
-    thisUser() {
-            return this.$store.state.userData;
-        },
   },
   methods: {
     deleteUser(id) {
@@ -200,6 +190,27 @@ export default {
         localStorage.removeItem("userData");
       }
       this.$router.push("/login");
+    },
+    openEditModal(id) {
+      // this.editingUser = JSON.parse(JSON.stringify(this.currentUser));
+      const data = JSON.parse(localStorage.getItem("userData"))
+      if (data) {
+        this.user = JSON.stringify(data)
+      }
+      this.editingUserID = id;
+    },
+    async updateUser(id) {
+      console.log(this.editingUser)
+      try {
+        await this.$store.dispatch("updateUser", {
+          userID: id,
+          data: { ...this.editingUser },
+        });
+        console.log(this.editingUser)
+        console.log(id)
+      } catch (e) {
+        console.log(e);
+      }
     },
   },
 };
@@ -225,6 +236,36 @@ button {
 button:hover {
   background-color: #5c8374;
 }
+.btn1 {
+  padding: 0.5rem;
+  width: 10rem;
+  border: 2px solid #759e8f;
+  background-color: #93b1a6;
+  color: white;
+  margin-bottom: 1rem;
+  font-weight: bolder;
+  border-radius: 5rem;
+}
+
+.btn1:hover {
+  background-color: #5c8374;
+}
+
+.btn-close {
+  padding: 0.5rem;
+  width: 4rem;
+  border: 2px solid #759e8f;
+  background-color: #93b1a6;
+  color: white;
+  margin-bottom: 1rem;
+  font-weight: bolder;
+  border-radius: 5rem;
+}
+
+.btn-close:hover {
+  background-color: #5c8374;
+}
+
 
 .heading {
   margin-top: 2rem;
@@ -232,4 +273,19 @@ button:hover {
   text-decoration: underline;
   font-weight: bolder;
 }
+
+p{
+  border: 3px solid white;
+  background-color: white;
+  color: black;
+  width: 50%;
+  height: 2rem;
+}
+
+input {
+  width: 100%;
+  height: 3rem;
+  margin-bottom: 2rem;
+}
+
 </style>

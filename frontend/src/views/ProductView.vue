@@ -113,7 +113,8 @@ export default {
     },
     addToCart(product) {
       if (product) {
-        this.$store.dispatch("addToCart", product);
+        this.$store.dispatch("addToCartAction", product);
+        localStorage.setItem('cart', JSON.stringify(this.$store.state.cart))
         swal({
           title: "ADDED TO CART",
           text: "You successfully added to cart!",

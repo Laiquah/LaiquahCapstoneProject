@@ -76,6 +76,7 @@ const {cookies} = useCookies();
   margin-left: 2rem;
   font-weight: bold;
   font-size: smaller;
+  text-shadow: 2px 2px #528974;
 }
 
 .navbar{

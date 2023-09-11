@@ -72,13 +72,13 @@
 h1{
   font-size: 7rem;
   font-weight: bolder;
-  text-shadow: 2px 2px black;
+  text-shadow: 8px 8px black;
 }
 
 h2{
   font-size: 2rem;
   font-weight: bolder;
-  text-shadow: 2px 2px black;
+  text-shadow: 4px 4px black;
 }
 
 .text {

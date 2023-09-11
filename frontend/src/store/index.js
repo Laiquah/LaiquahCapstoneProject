@@ -6,6 +6,7 @@ const { cookies } = useCookies()
 import router from '@/router'
 import AuthenticateUser from '@/services/AuthenticateUser';
 const miniURL = "https://capstone-api-ug52.onrender.com/"
+const storedCart = JSON.parse(localStorage.getItem('cart')) || [];
 
 export default createStore({
   state: {
@@ -17,7 +18,7 @@ export default createStore({
     products: null,
     token: null,
     selectedProduct: null,
-    cart: [],
+    cart: storedCart,
     removeFromCart: null
   },
   getters: {
@@ -57,13 +58,19 @@ export default createStore({
       state.selectedProduct = product
     },
     addToCart(state, product) {
-      state.cart.push(product)
+      state.cart.push(product);
     },
-    removeFromCart(state, productIndex) {
-      state.cart.splice(productIndex, 1);
+    removeFromCart(state, index) {
+      state.cart.splice(index, 1);
     },
     clearUser(state) {
       state.user = null
+    },
+    // updateUser(state, userData) {
+    //   state.user = userData
+    // },
+    updateUser(state, updatedUser) {
+      state.user = updatedUser
     }
   },
   actions: {
@@ -160,10 +167,12 @@ export default createStore({
         console.log(res)
         const { msg, err } = res.data
         if(msg){
-          context.dispatch("fetchUsers")
-          context.commit("setUser", msg)
+          // context.dispatch("fetchUsers")
+          context.commit("updateUser", payload.data)
+          // context.commit("setUser", msg)
+          localStorage.setItem("userData", JSON.stringify(payload.data))
         } else{
-          context.commit("setMsg", e)
+          context.commit("setMsg", err || "An error occured")
         }
       } catch (e) {
         context.commit("setMsg", "an error occured");
@@ -241,24 +250,17 @@ export default createStore({
         context.commit("setMsg", "an error occured");
       }
     },
-    addToCart({ commit }, product) {
-      if ( product ){
-        commit('addToCart', product)
-      } else {
-        sweet.fire({
-          title: "added to cart",
-          text: "product successfully added to cart",
-          icon: "success",
-        })
-      }
+    async addToCartAction(context, product) {
+      context.commit('addToCart', product);
+      localStorage.setItem('cart', JSON.stringify(context.state.cart));
+    },
+    async removeFromCartAction(context, index) {
+      context.commit('removeFromCart', index);
     },
     logout({ commit }) {
       commit('clearUser')
       cookies.remove('RealUser')
-    },
-    async removeFromCartAction(context, productIndex) {
-      context.commit('removeFromCart', productIndex);
-    },
+    }
   },
   modules: {
   }

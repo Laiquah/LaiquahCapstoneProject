@@ -119,16 +119,20 @@
   font-size:x-large;
   text-decoration: underline;
 }
-.btn1{
-    margin-top: 2rem;
-    font-weight: bold;
-    margin-bottom: 2rem;
-    background-color: #93B1A6;
-    padding: .4rem;
-    border-radius: 1rem;
-    width: 15rem;
-    color: white;
-  }
+.btn1 {
+  padding: 0.5rem;
+  width: 15rem;
+  border: 2px solid #759e8f;
+  background-color: #93b1a6;
+  color: white;
+  margin-bottom: 1rem;
+  font-weight: bolder;
+  border-radius: 5rem;
+}
+
+.btn1:hover {
+  background-color: #5c8374;
+}
 
 .heading2 {
     margin-top: 2rem;

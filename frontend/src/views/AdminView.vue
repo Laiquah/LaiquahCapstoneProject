@@ -47,7 +47,7 @@
         <button @click="sortByPrice" id="button">Sort by Price</button>
       </div>
       <div class="col-4">
-        <select v-model="categoryFilter" @change="filterByCategory">
+        <select v-model="categoryFilter">
           <option value="">All Categories</option>
           <option value="GENERATOR">GENERATOR</option>
           <option value="INVERTERS">INVERTERS</option>
@@ -192,15 +192,23 @@ export default {
         }
       });
     },
-    filterByCategory() {
-      console.log('Category Filter:', this.categoryFilter);
-    this.filteredProducts = this.products.filter((product) => {
-      if (!this.categoryFilter) {
-        return true;
-      }
-      return product.category === this.categoryFilter;
-    });
-    console.log('Filtered Products:', this.filteredProducts);
+    // filterByCategory() {
+    //   console.log('Category Filter:', this.categoryFilter);
+    // this.filteredProducts = this.products.filter((product) => {
+    //   if (!this.categoryFilter) {
+    //     return true;
+    //   }
+    //   return this.products.category === this.categoryFilter;
+    // });
+    // console.log('Filtered Products:', this.filteredProducts);
+    filteredProducts() {
+    const selectedCategory = this.categoryFilter;
+
+    if (!selectedCategory) {
+      return this.products;
+    } else {
+      return this.products.filter(product => product.category === selectedCategory);
+    }
   },
   },
 };

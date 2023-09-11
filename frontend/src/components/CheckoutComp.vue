@@ -220,4 +220,8 @@ hr {
   button:hover{
     background-color: #5C8374;
   }
+
+  .img-fluid{
+    width: 10rem;
+  }
 </style>

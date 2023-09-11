@@ -13,7 +13,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="product in cartItems" :key="product.prodID">
+          <tr v-for="(product, index) in cart" :key="product.prodID">
             <td>{{ product.prodName }}</td>
             <td>
               <img
@@ -37,15 +37,21 @@
 <script>
 export default {
   computed: {
-    cartItems() {
+    cart() {
       return this.$store.state.cart;
-    },
+    }
   },
   methods: {
     removeFromCart(index) {
-      this.$store.dispatch("removeFromCartAction", index);
-      localStorage.setItem("cart", JSON.stringify(this.cart));
+      this.$store.dispatch('removeFromCartAction', index);
+      localStorage.setItem('cart', JSON.stringify(this.cart));
     },
+    updateQuantity(index) {
+      const item = this.cart[index];
+      this.$store.dispatch('addToCartAction', { product: item, quantity: item.quantity });
+      localStorage.setItem('cart', JSON.stringify(this.cart));
+    },
+
   },
 };
 </script>

@@ -5,7 +5,7 @@
         welcome to your profile {{ user.firstName }} {{ user.lastName }}
       </h1>
       <div class="row">
-        <div class="col-6">
+        <div class="col-7">
           <center>
             <img
               :src="user.userURL"
@@ -15,7 +15,7 @@
             />
           </center>
         </div>
-        <div class="col-6">
+        <div class="col-5">
           <div class="userinformation">
             <center>
               <label>name:</label>
@@ -44,6 +44,8 @@
       <button @click="logout">logout</button>
       <br />
       <!-- Button trigger modal -->
+
+      <!-- Modal -->
       <button
         type="button"
         class="btn1"
@@ -53,8 +55,6 @@
       >
         edit
       </button>
-
-      <!-- Modal -->
       <div
         class="modal fade"
         :id="'mexampleModal' + editingUser.userID"
@@ -91,11 +91,7 @@
               <label>age:</label>
               <input type="text" placeholder="age" v-model="user.age" />
               <label>gender:</label>
-              <input
-                type="text"
-                placeholder="gender"
-                v-model="user.gender"
-              />
+              <input type="text" placeholder="gender" v-model="user.gender" />
               <label>email address:</label>
               <input
                 type="text"
@@ -141,17 +137,16 @@ export default {
         ...this.thisUser,
       },
       editingUserID: null,
-      model:{
+      model: {
         user: {
-        firstName: "",
-        lastName: "",
-        age: "",
-        gender: "",
-        emailAdd: "",
-        userURL: "",
-      },
+          firstName: "",
+          lastName: "",
+          age: "",
+          gender: "",
+          emailAdd: "",
+          userURL: "",
+        },
       }
-      
     };
   },
   created() {
@@ -193,21 +188,21 @@ export default {
     },
     openEditModal(id) {
       // this.editingUser = JSON.parse(JSON.stringify(this.currentUser));
-      const data = JSON.parse(localStorage.getItem("userData"))
+      const data = JSON.parse(localStorage.getItem("userData"));
       if (data) {
-        this.user = JSON.stringify(data)
+        this.user = JSON.stringify(data);
       }
       this.editingUserID = id;
     },
     async updateUser(id) {
-      console.log(this.editingUser)
+      console.log(this.editingUser);
       try {
         await this.$store.dispatch("updateUser", {
           userID: id,
           data: { ...this.editingUser },
         });
-        console.log(this.editingUser)
-        console.log(id)
+        console.log(this.editingUser);
+        console.log(id);
       } catch (e) {
         console.log(e);
       }
@@ -217,9 +212,12 @@ export default {
 </script>
 
 <style scoped>
+.row {
+  margin-bottom: 3rem;
+}
 .img-fluid {
-  border-radius: 50rem;
-  width: 20rem;
+  border-radius: 5rem;
+  width: 35rem;
 }
 
 button {
@@ -266,7 +264,6 @@ button:hover {
   background-color: #5c8374;
 }
 
-
 .heading {
   margin-top: 2rem;
   margin-bottom: 2rem;
@@ -274,7 +271,7 @@ button:hover {
   font-weight: bolder;
 }
 
-p{
+p {
   border: 3px solid white;
   background-color: white;
   color: black;
@@ -288,4 +285,7 @@ input {
   margin-bottom: 2rem;
 }
 
+label{
+  color: black;
+}
 </style>

@@ -17,7 +17,8 @@ export default createStore({
     products: null,
     token: null,
     selectedProduct: null,
-    cart: []
+    cart: [],
+    removeFromCart: null
   },
   getters: {
     cartTotal: (state) => {
@@ -58,11 +59,8 @@ export default createStore({
     addToCart(state, product) {
       state.cart.push(product)
     },
-    removeFromCart(state, cart) {
-      const index = state.cart.indexOf(cart);
-      if (index !== -1) {
-        state.cart.splice(index, 1);
-      }
+    removeFromCart(state, productIndex) {
+      state.cart.splice(productIndex, 1);
     },
     clearUser(state) {
       state.user = null
@@ -257,6 +255,9 @@ export default createStore({
     logout({ commit }) {
       commit('clearUser')
       cookies.remove('RealUser')
+    },
+    async removeFromCartAction(context, productIndex) {
+      context.commit('removeFromCart', productIndex);
     },
   },
   modules: {

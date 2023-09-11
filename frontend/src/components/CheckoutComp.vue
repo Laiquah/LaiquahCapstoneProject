@@ -7,7 +7,6 @@
                     <tr>
                         <th class="heading">PRODUCT NAME</th>
                         <th class="heading">PRODUCT IMAGE</th>
-                        <th class="heading">PRODUCT QUANTITY</th>
                         <th class="heading">PRODUCT PRICE (R)</th>
                     </tr>
                 </thead>
@@ -15,7 +14,6 @@
                         <tr v-for="product in cartItems" :key="product.prodID">
                             <td>{{ product.prodName }}</td>
                             <td><img :src="product.prodURL" :alt="product.prodName" loading="lazy" class="img-fluid"></td>
-                            <td>{{ product.quantity }}</td>
                             <td>R{{ product.prodPrice }}</td>
                         </tr>
                     </tbody>
@@ -48,7 +46,8 @@
                         </div>
                       </div>
                       <center>
-                          <button class="purchase--btn" @click.prevent="thank">Submit</button>
+                          <button class="purchase--btn" @click.prevent="submit">Submit</button>
+                          <button type="reset" class="purchase--btn">Clear</button>
                       </center>
                     </form>
                 </div>
@@ -63,6 +62,16 @@
             cartItems() {
                 return this.$store.state.cart
             }
+        },
+        methods: {
+          submit() {
+            swal({
+              title: "THANK YOU FOR YOUR PURCHASE",
+          text: "Your order has been processed successfully",
+          type: "success",
+          timer: 2000,
+            })
+          }
         }
     }
 </script>

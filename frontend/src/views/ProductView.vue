@@ -15,18 +15,6 @@
         v-model="searchProducts"
       />
     </form>
-    <div class="sort-dropdown">
-      <label for="sort" id="sort2">Sort by: </label>
-      <select id="sort" v-model="sortBy">
-        <option value="default">Default</option>
-        <option value="price">Price</option>
-        <option value="category">Category</option>
-        <option value="alphabetical">Alphabetical</option>
-      </select>
-      <button class="btn" @click="toggleSortDirection">
-        {{ sort === "asc" ? "ascending" : "descending" }}
-      </button>
-    </div>
     <div
       class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-md-4"
       v-if="products"
@@ -89,6 +77,7 @@
 
 <script>
 import Spinner from "../components/SpinnerComp.vue";
+import swal from 'sweetalert'
 export default {
   components: {
     Spinner,
@@ -110,13 +99,6 @@ export default {
               .includes(this.searchProducts.toLowerCase())
         );
       }
-      if(this.sortBy === 'prodPrice'){
-        filtered = filtered.sort((a, b)=> (this.sort === 'asc' ? a.prodPrice - b.prodPrice : b.prodPricerice - a.prodPrice))
-      } else if(this.sortBy === 'category'){
-        filtered = filtered.sort((a, b)=> a.category.localeCompare(b.category) * (this.sort === 'asc' ? 1 : -1))
-      } else if(this.sortBy === 'alphabetical'){
-        filtered = filtered.sort((a, b)=> a.prodName.localeCompare(b.prodName) * (this.sort === 'asc' ? 1 : -1))
-      }
       return filtered;
     },
   },
@@ -130,21 +112,31 @@ export default {
       this.$router.push({ name: "ProductView", params: { prodID: prodID } });
     },
     addToCart(product) {
-      this.$store.dispatch("addToCart", product);
+      if (product) {
+        this.$store.dispatch("addToCart", product);
+        swal({
+          title: "ADDED TO CART",
+          text: "You successfully added to cart!",
+          type: "success",
+          timer: 2000,
+        });
+      } else {
+        swal({
+          title: "DID NOT ADD TO CART",
+          text: "It did not add to cart!",
+          type: "error",
+          timer: 2000
+        })
+      }
     },
     searchProducts(e) {
       e.preventDefault();
       this.searchProducts = this.searchProducts.trim();
     },
-    toggleSortDirection() {
-      this.sort = this.sort === 'asc' ? 'desc' : 'asc'
-    },
   },
   data() {
     return {
       searchProducts: "",
-      sortBy: "",
-      sort: ""
     };
   },
 };

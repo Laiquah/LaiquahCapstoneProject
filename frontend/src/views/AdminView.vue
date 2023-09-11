@@ -42,6 +42,26 @@
       </table>
     </div>
     <h1 class="heading">PRODUCTS</h1>
+    <div class="row">
+      <div class="col-4">
+        <button @click="sortByPrice" id="button">Sort by Price</button>
+      </div>
+      <div class="col-4">
+        <select v-model="categoryFilter" @change="filterByCategory">
+          <option value="">All Categories</option>
+          <option value="GENERATOR">GENERATOR</option>
+          <option value="INVERTERS">INVERTERS</option>
+          <option value="UPS">UPS</option>
+          <option value="SOLAR PANELS">SOLAR PANELS</option>
+          <option value="POWER BANKS">POWER BANKS</option>
+          <option value="GAS STOVES">GAS STOVES</option>
+          <option value="LOADSHEDDING LIGHTS">LOADSHEDDING LIGHTS</option>
+        </select>
+      </div>
+      <div class="col-4">
+        <button @click="sortByAlphabet" id="button">Sort Alphabetically</button>
+      </div>
+    </div>
     <addProduct />
     <div class="table-responsive">
       <table class="table table-bordered border-#93B1A6 text-center">
@@ -91,6 +111,14 @@ import Spinner from "../components/SpinnerComp.vue";
 import updateProduct from "../components/UpdateProductComp.vue";
 import addProduct from "../components/AddProductComp.vue";
 export default {
+  data() {
+    return {
+      sortBy: "prodName",
+      sortOrder: "asc",
+      categoryFilter: null,
+      filteredProducts: []
+    }
+  },
   components: {
     Spinner,
     // updateUser,
@@ -105,10 +133,10 @@ export default {
       return this.$store.state.user;
     },
     product() {
-      return this.$store.state.product;
+      return this.$store.state.product || [];
     },
     products() {
-      return this.$store.state.products;
+      return this.$store.state.products || [];
     },
   },
   mounted() {
@@ -134,6 +162,46 @@ export default {
         }, 500);
       }
     },
+    sortByPrice() {
+      this.sortBy = "prodPrice";
+      this.sortOrder = this.sortOrder === "asc" ? "desc" : "asc";
+      this.sortProducts();
+    },
+    sortByAlphabet() {
+      console.log("reached")
+      this.sortBy = "prodName";
+      this.sortOrder = this.sortOrder === "asc" ? "desc" : "asc";
+      this.sortProducts();
+    },
+    sortProducts() {
+      this.products.sort((a, b) => {
+        const priceA = parseFloat(a[this.sortBy]);
+      const priceB = parseFloat(b[this.sortBy]);
+        if (this.sortBy === 'prodPrice') {
+          if (this.sortOrder === "asc") {
+            return priceA - priceB
+          } else {
+            return priceB - priceA
+          }
+        }else if (this.sortBy === 'prodName') {
+          if (this.sortOrder === "asc") {
+            return a[this.sortBy].localeCompare(b[this.sortBy])
+          } else {
+            return b[this.sortBy].localeCompare(a[this.sortBy])
+          }
+        }
+      });
+    },
+    filterByCategory() {
+      console.log('Category Filter:', this.categoryFilter);
+    this.filteredProducts = this.products.filter((product) => {
+      if (!this.categoryFilter) {
+        return true;
+      }
+      return product.category === this.categoryFilter;
+    });
+    console.log('Filtered Products:', this.filteredProducts);
+  },
   },
 };
 </script>
@@ -172,4 +240,21 @@ button {
 button:hover {
   background-color: #93b1a6;
 }
+
+#button {
+  padding: 0.5rem;
+  width: 10rem;
+  border: 2px solid #759e8f;
+  background-color: #93b1a6;
+  color: white;
+  margin-bottom: 1rem;
+  font-weight: bolder;
+  border-radius: 5rem;
+}
+
+#button:hover {
+  background-color: #5c8374;
+}
+
+
 </style>

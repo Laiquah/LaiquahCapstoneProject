@@ -19,7 +19,7 @@
       class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-md-4"
       v-if="products"
     >
-      <div class="col" v-for="product in filteredProducts" :key="product">
+      <div class="col" v-for="product in filteredProducts" :key="product" data-aos="flip-right">
         <div class="card">
           <center>
             <img

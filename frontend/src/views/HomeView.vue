@@ -88,24 +88,9 @@ h2{
   text-shadow: 2px 2px black;
 }
 
-.heading{
-  font-size: xx-large;
-  font-weight: 900;
-}
-
 .img-fluid{
   margin-bottom: 1rem;
   aspect-ratio: 1/1;
-}
-
-.btn1{
-  margin-top: 2rem;
-  margin-bottom: 2rem;
-  background-color: #93B1A6;
-  padding: .4rem;
-  border-radius: 1rem;
-  width: 10rem;
-  color: white;
 }
 
 .home{
@@ -132,7 +117,15 @@ h3{
   }
 
   h1{
-    font-size: 50px;
+    font-size: 40px;
+  }
+
+  h2{
+    font-size: 20px;
+  }
+
+  h3{
+    font-size: 55px;
   }
 
   .col-4{
@@ -147,6 +140,10 @@ h3{
 @media screen and (max-width: 700px) {
   .text {
     top: 10%;
+  }
+
+  h1{
+    font-size: 50px;
   }
   .row{
     --bs-gutter-x: 0;

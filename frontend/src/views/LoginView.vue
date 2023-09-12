@@ -60,7 +60,6 @@ export default {
     text-shadow: 2px 2px #93b1a6
   }
 .card{
-    width: 30%;
     padding: 2rem;
     margin-bottom: 3rem;
     border: 2px solid #5c8374;
@@ -93,5 +92,12 @@ export default {
   label{
     font-size: larger;
     font-weight: bolder;
+  }
+
+  @media screen and (max-width:700px) {
+    .card{
+      width: 75%;
+      margin: 0;
+    }
   }
 </style>

@@ -90,4 +90,8 @@ const {cookies} = useCookies();
 #person{
   width: 5rem;
 }
+
+.navbar-toggler{
+  background: white;
+}
 </style>

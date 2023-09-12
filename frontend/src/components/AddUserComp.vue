@@ -32,7 +32,8 @@
             <div class="modal-body">
               <label for="firstName">First Name:</label>
               <input
-                required
+              oninvalid="this.setCustomValidity('provide your first name')"
+              oninput="this.setCustomValidity('')" required
                 id="firstName"
                 type="text"
                 placeholder="first name"
@@ -40,7 +41,8 @@
               />
               <label for="lastName">Last Name:</label>
               <input
-                required
+              oninvalid="this.setCustomValidity('provide your last name')"
+              oninput="this.setCustomValidity('')" required
                 id="lastName"
                 type="text"
                 placeholder="last name"
@@ -48,7 +50,8 @@
               />
               <label for="userAge">Age:</label>
               <input
-                required
+              oninvalid="this.setCustomValidity('provide your age')"
+              oninput="this.setCustomValidity('')" required
                 id="userAge"
                 type="number"
                 placeholder="age"
@@ -56,7 +59,8 @@
               />
               <label for="gender">Gender:</label>
               <input
-                required
+              oninvalid="this.setCustomValidity('provide your gender')"
+              oninput="this.setCustomValidity('')" required
                 id="gender"
                 type="text"
                 placeholder="gender"
@@ -64,7 +68,8 @@
               />
               <label for="userRole">Role:</label>
               <input
-                required
+              oninvalid="this.setCustomValidity('provide your user role')"
+              oninput="this.setCustomValidity('')" required
                 id="userRole"
                 type="text"
                 placeholder="role"
@@ -72,7 +77,8 @@
               />
               <label for="email">Email Address</label>
               <input
-                required
+              oninvalid="this.setCustomValidity('provide your email')"
+              oninput="this.setCustomValidity('')" required
                 id="email"
                 type="text"
                 placeholder="email address"
@@ -80,7 +86,8 @@
               />
               <label for="password">Password:</label>
               <input
-                required
+              oninvalid="this.setCustomValidity('provide your password')"
+              oninput="this.setCustomValidity('')" required
                 id="password"
                 type="text"
                 placeholder="password"
@@ -88,7 +95,8 @@
               />
               <label for="profilePic">Profile Image:</label>
               <input
-                required
+              oninvalid="this.setCustomValidity('provide your profile image')"
+              oninput="this.setCustomValidity('')" required
                 id="profilePic"
                 type="text"
                 placeholder="profile image"

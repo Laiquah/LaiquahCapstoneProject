@@ -31,7 +31,8 @@
           <div class="modal-body">
             <label for="productname">Product name:</label>
             <input
-              required
+            oninvalid="this.setCustomValidity('provide product name')"
+            oninput="this.setCustomValidity('')" required
               id="productname"
               placeholder="product Name"
               type="text"
@@ -39,7 +40,8 @@
             />
             <label for="description">Product description:</label>
             <input
-              required
+            oninvalid="this.setCustomValidity('provide a description')"
+            oninput="this.setCustomValidity('')" required
               id="description"
               placeholder="product desc"
               type="text"
@@ -47,7 +49,8 @@
             />
             <label for="description">Product model:</label>
             <input
-              required
+            oninvalid="this.setCustomValidity('provide model for the product')"
+            oninput="this.setCustomValidity('')" required
               id="model"
               placeholder="model"
               type="text"
@@ -55,7 +58,8 @@
             />
             <label for="quantity">Product data:</label>
             <input
-              required
+            oninvalid="this.setCustomValidity('provide data about the product')"
+            oninput="this.setCustomValidity('')" required
               id="data"
               placeholder="data"
               type="text"
@@ -63,7 +67,8 @@
             />
             <label for="price">Product dimensions:</label>
             <input
-              required
+            oninvalid="this.setCustomValidity('provide product dimensions')"
+            oninput="this.setCustomValidity('')" required
               id="dimensions"
               placeholder="dimensions"
               type="text"
@@ -71,7 +76,8 @@
             />
             <label for="category">Product category:</label>
             <input
-              required
+            oninvalid="this.setCustomValidity('provide a category')"
+            oninput="this.setCustomValidity('')" required
               id="category"
               placeholder="category"
               type="text"
@@ -79,7 +85,8 @@
             />
             <label for="category">Product price:</label>
             <input
-              required
+            oninvalid="this.setCustomValidity('provide a price for the product')"
+            oninput="this.setCustomValidity('')" required
               id="price"
               placeholder="price"
               type="number"
@@ -87,7 +94,8 @@
             />
             <label for="productUrl">Product Image:</label>
             <input
-              required
+            oninvalid="this.setCustomValidity('provide an image for the product')"
+            oninput="this.setCustomValidity('')" required
               id="productUrl"
               placeholder="product image"
               type="text"

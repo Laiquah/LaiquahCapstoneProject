@@ -36,31 +36,13 @@
               <p class="card-text">{{ product.prodDesc }}</p>
             </div>
             <div class="category">
-              category:
+              CATEGORY:
+            </div>
               <p class="card-text">{{ product.category }}</p>
-            </div>
             <div class="price">
-              price:
+              PRICE:
+            </div>
               <p class="card-text">R{{ product.prodPrice }}</p>
-            </div>
-            <div class="quantity">
-              quantity:
-              <select>
-                <option>0</option>
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-                <option>6</option>
-                <option>7</option>
-                <option>8</option>
-                <option>9</option>
-                <option>10</option>
-                <option>11</option>
-                <option>12</option>
-              </select>
-            </div>
             <div class="buttons">
               <button @click="viewProduct(product.prodID)">VIEW MORE</button>
               <button @click="addToCart(product)">ADD TO CART</button>
@@ -155,6 +137,10 @@ export default {
   margin-bottom: 1.5rem;
 }
 
+.card-title{
+  font-size: larger
+}
+
 .card {
   margin-bottom: 2rem;
   padding: 1rem;
@@ -167,10 +153,13 @@ h5 {
 .category {
   margin-top: 1.5rem;
   width: 100%;
+  font-weight: bolder;
+  font-size: large;
 }
 
-.quantity {
-  margin-top: 1.5rem;
+.price{
+  font-weight: bolder;
+  font-size: large;
 }
 
 .buttons {
@@ -180,6 +169,19 @@ h5 {
 .description {
   height: 144px;
   overflow: auto;
+}
+
+::-webkit-scrollbar {
+  width: 2px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #84a7a1;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.2);
 }
 
 .card-img-top {
@@ -214,10 +216,11 @@ button:hover {
   margin-bottom: 2rem;
   text-decoration: underline;
   font-weight: bolder;
+  text-shadow: 2px 2px #93b1a6
 }
 
 .card {
-  border: 2px solid #759e8f;
+  border: 8px solid #759e8f;
   background-color: #93b1a6;
   padding: 0.4rem;
 }

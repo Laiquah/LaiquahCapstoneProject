@@ -1,6 +1,7 @@
 <template>
   <div>
     <h1 class="heading">USERS</h1>
+    <addUser/>
     <div class="table-responsive">
       <table class="table table-bordered border-#93B1A6 text-center">
         <thead>
@@ -107,9 +108,10 @@
 
 <script>
 import Spinner from "../components/SpinnerComp.vue";
-// import updateUser from "../components/UpdateUserComp.vue";
+import updateUser from "../components/UpdateUserComp.vue";
 import updateProduct from "../components/UpdateProductComp.vue";
 import addProduct from "../components/AddProductComp.vue";
+import addUser from "../components/AddUserComp.vue"
 export default {
   data() {
     return {
@@ -121,9 +123,10 @@ export default {
   },
   components: {
     Spinner,
-    // updateUser,
+    updateUser,
     updateProduct,
     addProduct,
+    addUser
   },
   computed: {
     users() {
@@ -232,6 +235,7 @@ export default {
   margin-bottom: 2rem;
   text-decoration: underline;
   font-weight: bolder;
+  text-shadow: 2px 2px #93b1a6
 }
 
 button {

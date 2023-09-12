@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="about">
-      <h1 class="heading">about power outage innovations</h1>
+      <h1 class="heading">ABOUT POWER OUTAGE INNOVATIONS</h1>
       <center>
         <div class="display">
           <img
@@ -27,7 +27,7 @@
       <center>
         <hr />
       </center>
-      <h1 class="heading">services & partnerships</h1>
+      <h1 class="heading">SERVICES & PARTNERSHIPS</h1>
       <center>
         <div class="services">
           Power Outage Innovations is a pioneering company focused on
@@ -91,7 +91,7 @@
       <center>
         <hr />
       </center>
-      <h1 class="heading">meet the team</h1>
+      <h1 class="heading">MEET THE TEAM</h1>
       <center>
         <div id="carouselExampleCaptions" class="carousel slide">
           <div class="carousel-indicators">
@@ -297,6 +297,7 @@ hr {
   margin-bottom: 2rem;
   text-decoration: underline;
   font-weight: bolder;
+  text-shadow: 2px 2px #93b1a6
 }
 
 @media screen and (max-width: 700px) {

@@ -118,6 +118,8 @@
   font-weight: bolder;
   font-size:x-large;
   text-decoration: underline;
+  color: black;
+  text-shadow: 2px 2px 2px black;
 }
 .btn1 {
   padding: 0.5rem;
@@ -155,6 +157,7 @@ hr {
     margin-bottom: 2rem;
     text-decoration: underline;
     font-weight: bolder;
+    text-shadow: 2px 2px #93b1a6
   }
 
   .carousel-inner {

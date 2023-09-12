@@ -37,42 +37,56 @@
             <input type="text" placeholder="ID" v-model="editingUser.userID" />
             <label>first name:</label>
             <input
+            oninvalid="this.setCustomValidity('new first name required')"
+                  oninput="this.setCustomValidity('')" required
               type="text"
               placeholder="first name"
               v-model="editingUser.firstName"
             />
             <label>last name:</label>
             <input
+            oninvalid="this.setCustomValidity('new last name required')"
+                  oninput="this.setCustomValidity('')" required
               type="text"
               placeholder="last name"
               v-model="editingUser.lastName"
             />
             <label>Age:</label>
             <input
+            oninvalid="this.setCustomValidity('new age required')"
+                  oninput="this.setCustomValidity('')" required
               type="number"
               placeholder="age"
               v-model="editingUser.age"
             />
             <label>gender:</label>
             <input
+            oninvalid="this.setCustomValidity('new gender required')"
+                  oninput="this.setCustomValidity('')" required
               type="text"
               placeholder="gender"
               v-model="editingUser.gender"
             />
             <label>user role:</label>
             <input
+            oninvalid="this.setCustomValidity('change in role')"
+                  oninput="this.setCustomValidity('')" required
               type="text"
               placeholder="role"
               v-model="editingUser.userRole"
             />
             <label>email address:</label>
             <input
+            oninvalid="this.setCustomValidity('provide your new email')"
+                  oninput="this.setCustomValidity('')" required
               type="text"
               placeholder="email address"
               v-model="editingUser.emailAdd"
             />
             <label>user profile:</label>
             <input
+            oninvalid="this.setCustomValidity('new profile required')"
+                  oninput="this.setCustomValidity('')" required
               type="text"
               placeholder="profile image"
               v-model="editingUser.userURL"

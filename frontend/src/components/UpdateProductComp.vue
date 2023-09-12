@@ -34,54 +34,72 @@
           <div class="modal-body">
             <label>Product ID:</label>
             <input
+            oninvalid="this.setCustomValidity('provide a valid id number')"
+                  oninput="this.setCustomValidity('')" required
               placeholder="name"
               type="text"
               v-model="editingProduct.prodID"
             />
             <label>Product name:</label>
             <input
+            oninvalid="this.setCustomValidity('updated product name required')"
+                  oninput="this.setCustomValidity('')" required
               placeholder="name"
               type="text"
               v-model="editingProduct.prodName"
             />
             <label>Product description:</label>
             <input
+            oninvalid="this.setCustomValidity('updated product description required')"
+                  oninput="this.setCustomValidity('')" required
               placeholder="description"
               type="text"
               v-model="editingProduct.prodDesc"
             />
             <label>Product Model:</label>
             <input
+            oninvalid="this.setCustomValidity('updated product model required')"
+                  oninput="this.setCustomValidity('')" required
               placeholder="quantity"
               type="text"
               v-model="editingProduct.prodModel"
             />
             <label>Product Data:</label>
             <input
+            oninvalid="this.setCustomValidity('updated product data required')"
+                  oninput="this.setCustomValidity('')" required
               placeholder="price"
               type="text"
               v-model="editingProduct.prodData"
             />
             <label>Product Dimensions:</label>
             <input
+            oninvalid="this.setCustomValidity('updated product dimensions required')"
+                  oninput="this.setCustomValidity('')" required
               placeholder="category"
               type="text"
               v-model="editingProduct.prodDesc"
             />
             <label>Product category:</label>
             <input
+            oninvalid="this.setCustomValidity('updated product category required')"
+                  oninput="this.setCustomValidity('')" required
               placeholder="image"
               type="text"
               v-model="editingProduct.category"
             />
             <label>Product price:</label>
             <input
+            oninvalid="this.setCustomValidity('updated product price required')"
+                  oninput="this.setCustomValidity('')" required
               placeholder="image"
               type="text"
               v-model="editingProduct.prodPrice"
             />
             <label>Product image:</label>
             <input
+            oninvalid="this.setCustomValidity('updated product image required')"
+                  oninput="this.setCustomValidity('')" required
               placeholder="image"
               type="text"
               v-model="editingProduct.prodURL"

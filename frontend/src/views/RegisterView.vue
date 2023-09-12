@@ -7,25 +7,32 @@
           <div class="card">
             <form @submit.prevent="register">
               <label>First name:</label>
-              <input placeholder="first name" type="name" required v-model="payload.firstName" />
+              <input placeholder="first name" type="name" oninvalid="this.setCustomValidity('provide your name')"
+              oninput="this.setCustomValidity('')" required v-model="payload.firstName" />
               <br />
               <label>Last name:</label>
-              <input placeholder="last name" type="name" required v-model="payload.lastName" />
+              <input placeholder="last name" type="name" oninvalid="this.setCustomValidity('provide your surname')"
+              oninput="this.setCustomValidity('')" required v-model="payload.lastName" />
               <br />
               <label>Age</label>
-              <input placeholder="age" type="number" required v-model="payload.age" />
+              <input placeholder="age" type="number" oninvalid="this.setCustomValidity('provide your age')"
+              oninput="this.setCustomValidity('')" required v-model="payload.age" />
               <br />
               <label>Gender</label>
-              <input placeholder="gender" type="gender" required v-model="payload.gender" />
+              <input placeholder="gender" type="gender" oninvalid="this.setCustomValidity('provide your gender')"
+              oninput="this.setCustomValidity('')" required v-model="payload.gender" />
               <br /> 
               <label>Email:</label>
-              <input placeholder="email address" type="email" required v-model="payload.emailAdd" />
+              <input placeholder="email address" type="email" oninvalid="this.setCustomValidity('provide your email')"
+              oninput="this.setCustomValidity('')" required v-model="payload.emailAdd" />
               <br />
               <label>Password:</label>
-              <input placeholder="password" type="password" required v-model="payload.userPass" />
+              <input placeholder="password" type="password" oninvalid="this.setCustomValidity('provide a password')"
+              oninput="this.setCustomValidity('')" required v-model="payload.userPass" />
               <br />
               <label>Profile picture:</label>
-              <input placeholder="profile picture" type="picture" v-model="payload.userURL" />
+              <input placeholder="profile picture" oninvalid="this.setCustomValidity('provide your profile picture')"
+              oninput="this.setCustomValidity('')" required type="picture" v-model="payload.userURL" />
               <br />
               <center>
                 <button type="submit">REGISTER</button>

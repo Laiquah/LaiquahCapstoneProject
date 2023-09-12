@@ -228,6 +228,11 @@ button:hover {
 @media screen and (max-width: 300px) {
   .row {
     --bs-gutter-x: 0;
+    flex-direction: column;
+  }
+
+  .card{
+    width: 300px;
   }
 }
 

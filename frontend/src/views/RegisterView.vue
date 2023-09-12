@@ -80,7 +80,6 @@ input {
 }
 
 .card {
-  width: 30%;
   padding: 2rem;
   margin-bottom: 3rem;
   border: 2px solid #5c8374;

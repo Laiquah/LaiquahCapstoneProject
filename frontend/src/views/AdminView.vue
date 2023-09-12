@@ -108,10 +108,10 @@
 
 <script>
 import Spinner from "../components/SpinnerComp.vue";
-import updateUser from "../components/UpdateUserComp.vue";
+import updateUser from '../components/UpdateUserComp.vue'
 import updateProduct from "../components/UpdateProductComp.vue";
 import addProduct from "../components/AddProductComp.vue";
-import addUser from "../components/AddUserComp.vue"
+import addUser from '../components/AddUserComp.vue'
 export default {
   data() {
     return {

@@ -160,6 +160,29 @@ export default createStore({
         console.log("err")
       }
     },
+    async addUser(context, payload){
+      try{
+        const { msg } = (await axios.post(`${miniURL}register`, payload)).data
+        if ( msg ) {
+          sweet({
+            title: "register",
+            text: msg,
+            icon: "success",
+            timer: 3000
+          })
+          context.dispatch("fetchUsers")
+        } else {
+          sweet({
+            title: "error",
+            text: msg,
+            icon: "unsuccessful",
+            timer: 3000
+          })
+        }
+      } catch (e) {
+        console.log("err")
+      }
+    },
     async updateUser(context, payload) {
       console.log(payload)
       try {

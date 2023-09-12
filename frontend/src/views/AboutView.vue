@@ -206,7 +206,7 @@
           </button>
         </div>
       </center>
-      <button class="btn1" href="/products">browse our products</button>
+      <button class="buttons"><a href="/products">browse our products</a></button>
     </div>
   </div>
 </template>
@@ -228,6 +228,21 @@ export default {};
   font-weight: bold;
 }
 
+.buttons {
+  padding: 0.5rem;
+  width: 15rem;
+  border: 2px solid #759e8f;
+  background-color: #5c8374;
+  color: white;
+  margin-bottom: 1rem;
+  font-weight: bolder;
+  border-radius: 5rem;
+}
+
+.buttons:hover {
+  background-color: #93b1a6;
+}
+
 .btn2{
   margin-top: 2rem;
   font-weight: bold;
@@ -235,16 +250,6 @@ export default {};
   padding: .4rem;
   width: 7rem;
   border-radius: 1rem;
-  color: white;
-}
-.btn1{
-  margin-top: 2rem;
-  font-weight: bold;
-  margin-bottom: 2rem;
-  background-color: #93B1A6;
-  padding: .4rem;
-  border-radius: 1rem;
-  width: 15rem;
   color: white;
 }
 .carousel-inner {
@@ -312,7 +317,14 @@ hr {
 
   .row{
     --bs-gutter-x: 0;
-    flex-direction: column;
+  }
+
+  #card1{
+    margin: 0;
+  }
+
+  #card2{
+    margin:0;
   }
 }
 

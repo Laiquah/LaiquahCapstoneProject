@@ -130,7 +130,7 @@
     },
     methods: {
       createUser() {
-        this.$store.dispatch("regUser", this.model.user);
+        this.$store.dispatch("addUser", this.model.user);
         console.log(this.model.user);
       },
     },

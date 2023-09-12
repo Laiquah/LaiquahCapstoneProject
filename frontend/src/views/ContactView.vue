@@ -147,4 +147,36 @@
   .kkj{
     padding: 2rem;
   }
+
+  @media screen and (max-width:300px) {
+    .form{
+      width:300px;
+    }
+    
+    button{
+      width: 150px
+    }
+
+    .kkl{
+      padding: 0;
+    }
+
+    .kkj{
+      padding: 0;
+    }
+  }
+
+  @media screen and (max-width:700px) {
+    .form{
+      width: 700px;
+    }
+
+    .kkl{
+      padding: 0;
+    }
+
+    .kkj{
+      padding: 0;
+    }
+  }
 </style>

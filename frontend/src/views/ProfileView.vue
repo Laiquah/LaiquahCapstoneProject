@@ -78,22 +78,30 @@
                   <input
                     type="text"
                     placeholder="first name"
+                    oninvalid="this.setCustomValidity('first name required')"
+                  oninput="this.setCustomValidity('')" required
                     v-model="user.firstName"
                   />
                   <label>last name:</label>
                   <input
                     type="text"
                     placeholder="last name"
+                    oninvalid="this.setCustomValidity('last name required')"
+                  oninput="this.setCustomValidity('')" required
                     v-model="user.lastName"
                   />
                   <label>age:</label>
-                  <input type="text" placeholder="age" v-model="user.age" />
+                  <input type="text" placeholder="age" oninvalid="this.setCustomValidity('please enter your age here')"
+                  oninput="this.setCustomValidity('')" required v-model="user.age" />
                   <label>gender:</label>
-                  <input type="text" placeholder="gender" v-model="user.gender" />
+                  <input type="text" placeholder="gender" oninvalid="this.setCustomValidity('please enter your gender here')"
+                  oninput="this.setCustomValidity('')" required v-model="user.gender" />
                   <label>email address:</label>
                   <input
-                    type="text"
+                    type="email"
                     placeholder="emailAdd"
+                    oninvalid="this.setCustomValidity('please enter email here')"
+                  oninput="this.setCustomValidity('')" required
                     v-model="user.emailAdd"
                   />
                   <label>user profile:</label>
@@ -101,6 +109,8 @@
                     type="text"
                     id="test"
                     placeholder="profile image"
+                    oninvalid="this.setCustomValidity('please insert a profile picture')"
+                  oninput="this.setCustomValidity('')" required
                     v-model="user.userURL"
                   />
                 </div>
@@ -296,5 +306,37 @@ label{
   font-weight: bolder;
   color: white;
   text-shadow: 2px 2px 2px black;
+}
+
+@media screen and (max-width:300px) {
+  .row{
+    --bs-gutter-x: 0;
+    flex-direction: column;
+  }
+
+  .col-6{
+    width: 100%;
+  }
+
+  p{
+    font-size: small;
+    width: 100%;
+  }
+}
+
+@media screen and (max-width:700px) {
+  .row{
+    --bs-gutter-x: 0;
+    flex-direction: column;
+  }
+
+  .col-6{
+    width: 100%;
+  }
+
+  p{
+    font-size: small;
+    width: 100%;
+  }
 }
 </style>

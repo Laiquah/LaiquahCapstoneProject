@@ -64,6 +64,7 @@
     margin-bottom: 2rem;
     text-decoration: underline;
     font-weight: bolder;
+    text-shadow: 2px 2px #93b1a6
   }
 
   .text{

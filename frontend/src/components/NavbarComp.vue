@@ -75,7 +75,7 @@ const {cookies} = useCookies();
 .nav-item{
   margin-left: 2rem;
   font-weight: bold;
-  font-size: smaller;
+  font-size: x-large;
   text-shadow: 2px 2px #528974;
 }
 

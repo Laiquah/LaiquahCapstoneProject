@@ -13,7 +13,9 @@
               class="img-fluid"
               id="image"
             />
-            <p>Category: {{ product.category }}</p>
+            <p>Category:
+              <br>
+              {{ product.category }}</p>
             <div id="description">
               <label>Description</label>
               <br />
@@ -34,7 +36,9 @@
               <br />
               {{ product.prodDW }}
             </div>
-            <p>Price: R{{ product.prodPrice }}</p>
+            <p>Price:
+              <br>
+              R{{ product.prodPrice }}</p>
             <button class="btn" @click="addToCart(product)">ADD TO CART</button>
           </div>
         </div>
@@ -67,46 +71,54 @@ export default {
 
 <style scoped>
 #image {
-  width: 40rem;
+  width: 20rem;
   margin-bottom: 3rem;
 }
 
 #card {
   margin-top: 2rem;
-  width: fit-content;
+  width: 75%;
   padding: 2rem;
   margin-bottom: 2rem;
 }
 
 h1 {
-  margin-top: 3rem;
+  margin-top: 2rem;
   margin-bottom: 3rem;
   font-size: xx-large;
   font-weight: bolder;
   text-decoration: underline;
+  color: black;
+  text-shadow: 2px 2px #93b1a6;
 }
 
 #description {
   margin-bottom: 2rem;
-  width: 30rem;
+  width: 100%;
 }
 
 #model {
   margin-bottom: 2rem;
-  width: 30rem;
+  width: 100%;
 }
 
 #dimensions {
   margin-bottom: 2rem;
-  width: 30rem;
+  width: 100%;
 }
 
 #data {
   margin-bottom: 2rem;
-  width: 30rem;
+  width: 100%;
 }
 
 label {
+  font-size: larger;
+  font-weight: bolder;
+  text-decoration: underline;
+}
+
+p {
   font-size: larger;
   font-weight: bolder;
   text-decoration: underline;

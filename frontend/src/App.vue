@@ -22,10 +22,10 @@ export default {
 </script>
 
 <style>
-@import url('https://fonts.cdnfonts.com/css/titilliumtext');
+@import url('https://fonts.cdnfonts.com/css/granstander-clean');
                 
 #app {
-  font-family: 'TitilliumText', sans-serif;
+  font-family: 'Granstander Clean', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;

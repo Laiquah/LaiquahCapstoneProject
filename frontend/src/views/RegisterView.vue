@@ -17,9 +17,6 @@
               <br />
               <label>Gender</label>
               <input placeholder="gender" type="gender" required v-model="payload.gender" />
-              <br />
-              <label>Role:</label>
-              <input placeholder="role" type="role" required v-model="payload.userRole" />
               <br /> 
               <label>Email:</label>
               <input placeholder="email address" type="email" required v-model="payload.emailAdd" />
@@ -52,7 +49,7 @@ export default {
         age: null,
         gender: null,
         emailAdd: null,
-        userRole: null,
+        userRole: "user",
         userURL: "https://i.postimg.cc/3rZ0H0D8/profile-Image.png",
         userPass: null,
       },
@@ -72,6 +69,7 @@ export default {
   margin-bottom: 2rem;
   text-decoration: underline;
   font-weight: bolder;
+  text-shadow: 2px 2px #93b1a6
 }
 
 input {

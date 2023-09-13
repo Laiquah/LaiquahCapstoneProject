@@ -80,7 +80,7 @@
                     placeholder="first name"
                     oninvalid="this.setCustomValidity('first name required')"
                   oninput="this.setCustomValidity('')" required
-                    v-model="user.firstName"
+                    v-model="editingUser.firstName"
                   />
                   <label>last name:</label>
                   <input
@@ -88,21 +88,21 @@
                     placeholder="last name"
                     oninvalid="this.setCustomValidity('last name required')"
                   oninput="this.setCustomValidity('')" required
-                    v-model="user.lastName"
+                    v-model="editingUser.lastName"
                   />
                   <label>age:</label>
                   <input type="text" placeholder="age" oninvalid="this.setCustomValidity('please enter your age here')"
-                  oninput="this.setCustomValidity('')" required v-model="user.age" />
+                  oninput="this.setCustomValidity('')" required v-model="editingUser.age" />
                   <label>gender:</label>
                   <input type="text" placeholder="gender" oninvalid="this.setCustomValidity('please enter your gender here')"
-                  oninput="this.setCustomValidity('')" required v-model="user.gender" />
+                  oninput="this.setCustomValidity('')" required v-model="editingUser.gender" />
                   <label>email address:</label>
                   <input
                     type="email"
                     placeholder="emailAdd"
                     oninvalid="this.setCustomValidity('please enter email here')"
                   oninput="this.setCustomValidity('')" required
-                    v-model="user.emailAdd"
+                    v-model="editingUser.emailAdd"
                   />
                   <label>user profile:</label>
                   <input
@@ -111,7 +111,7 @@
                     placeholder="profile image"
                     oninvalid="this.setCustomValidity('please insert a profile picture')"
                   oninput="this.setCustomValidity('')" required
-                    v-model="user.userURL"
+                    v-model="editingUser.userURL"
                   />
                 </div>
                 <div class="modal-footer">

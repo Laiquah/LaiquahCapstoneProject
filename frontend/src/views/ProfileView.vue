@@ -5,7 +5,7 @@
         WELCOME TO YOUR PROFILE :: {{ user.firstName }} {{ user.lastName }}
       </h1>
       <div class="row">
-        <div class="col-6">
+        <div class="col-6" data-aos="zoom-in-down">
           <label>PROFILE IMAGE:</label>
           <center>
             <img
@@ -16,7 +16,7 @@
             />
           </center>
         </div>
-        <div class="col-6">
+        <div class="col-6" data-aos="zoom-in-down">
           <div class="userinformation">
             <center>
               <label>NAME:</label>
@@ -209,7 +209,10 @@ export default {
         await this.$store.dispatch("updateUser", {
           userID: id,
           data: { ...this.editingUser },
-        });
+        })
+        setTimeout(() => {
+          location.reload();
+        }, 500);
         console.log(this.editingUser);
         console.log(id);
       } catch (e) {

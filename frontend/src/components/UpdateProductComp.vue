@@ -1,6 +1,6 @@
 <template>
-    <div>
-        <button
+  <div>
+    <button
       type="button"
       class="btn"
       @click="openEditModal(product.prodID)"
@@ -10,12 +10,13 @@
       edit
     </button>
 
-    <!-- Modal -->
-    <div
-      class="modal fade"
+     <!-- Modal -->
+    <div 
+      class="modal"
       :id="'exampleModal' + product.prodID"
       tabindex="-1"
       :aria-labelledby="'exampleModalLabel' + product.prodID"
+      :data-backdrop="'false'"
       aria-hidden="true"
     >
       <div class="modal-dialog">
@@ -124,13 +125,13 @@
           </div>
         </div>
       </div>
-    </div>
-    </div>
+    </div> 
+  </div>
 </template>
 
 <script>
-    export default {
-        props: ["product"],
+export default {
+  props: ["product"],
   data() {
     return {
       editingProduct: {
@@ -179,28 +180,30 @@
         });
     },
   },
-    }
+};
 </script>
 
 <style scoped>
 input {
-    width: 100%;
-    height: 3rem;
-    margin-bottom: 2rem;
-  }
+  width: 100%;
+  height: 3rem;
+  margin-bottom: 2rem;
+}
 
-  button {
-    padding: .5rem;
-    width: 5rem;
-    border: 2px solid #759e8f;
-    background-color: #5C8374;
-    color: white;
-    margin-bottom: 1rem;
-    font-weight: bolder;
-    border-radius: 5rem;
-  }
+button {
+  padding: 0.5rem;
+  width: 10rem;
+  border: 2px solid #759e8f;
+  background-color: #93b1a6;
+  color: black;
+  margin-bottom: 1rem;
+  font-weight: bolder;
+  border-radius: 5rem;
+}
 
-  button:hover{
-    background-color: #93b1a6;
-  }
+button:hover {
+  color: white;
+  border: 2px solid #93b1a6;
+  background-color: #5c8374;
+}
 </style>

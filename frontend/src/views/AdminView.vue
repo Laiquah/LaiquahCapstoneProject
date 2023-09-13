@@ -3,7 +3,7 @@
     <h1 class="heading">USERS</h1>
     <addUser/>
     <div class="table-responsive">
-      <table class="table table-bordered border-#93B1A6 text-center">
+      <table class="table table-bordered border-#93B1A6 text-center" data-aos="zoom-in-down">
         <thead>
           <tr>
             <th>ID</th>
@@ -34,7 +34,114 @@
                 class="img-fluid image"
               />
             </td>
-            <td><updateUser :user="user" /><button @click="deleteUser(user.userID)">delete</button></td>
+            <td> <!-- Button trigger modal -->
+              <button
+                type="button"
+                class="btn"
+                @click="openEditModal(user.userID)"
+                data-bs-toggle="modal"
+                :data-bs-target="'#texampleModal' + user.userID"
+              >
+                edit
+              </button>
+          
+              <!-- Modal -->
+              <div
+                class="modal fade"
+                :id="'texampleModal' + user.userID"
+                tabindex="-1"
+                :aria-labelledby="'texampleModalLabel' + user.userID"
+                aria-hidden="true"
+              >
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h1 class="modal-title fs-5" id="texampleModalLabel3">
+                        Edit an user here
+                      </h1>
+                      <button
+                        type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"
+                      ></button>
+                    </div>
+                    <div class="modal-body">
+                      <label>userID:</label>
+                      <input type="text" placeholder="ID" v-model="editingUser.userID" />
+                      <label>first name:</label>
+                      <input
+                      oninvalid="this.setCustomValidity('new first name required')"
+                            oninput="this.setCustomValidity('')" required
+                        type="text"
+                        placeholder="first name"
+                        v-model="editingUser.firstName"
+                      />
+                      <label>last name:</label>
+                      <input
+                      oninvalid="this.setCustomValidity('new last name required')"
+                            oninput="this.setCustomValidity('')" required
+                        type="text"
+                        placeholder="last name"
+                        v-model="editingUser.lastName"
+                      />
+                      <label>Age:</label>
+                      <input
+                      oninvalid="this.setCustomValidity('new age required')"
+                            oninput="this.setCustomValidity('')" required
+                        type="number"
+                        placeholder="age"
+                        v-model="editingUser.age"
+                      />
+                      <label>gender:</label>
+                      <input
+                      oninvalid="this.setCustomValidity('new gender required')"
+                            oninput="this.setCustomValidity('')" required
+                        type="text"
+                        placeholder="gender"
+                        v-model="editingUser.gender"
+                      />
+                      <label>user role:</label>
+                      <input
+                      oninvalid="this.setCustomValidity('change in role')"
+                            oninput="this.setCustomValidity('')" required
+                        type="text"
+                        placeholder="role"
+                        v-model="editingUser.userRole"
+                      />
+                      <label>email address:</label>
+                      <input
+                      oninvalid="this.setCustomValidity('provide your new email')"
+                            oninput="this.setCustomValidity('')" required
+                        type="text"
+                        placeholder="email address"
+                        v-model="editingUser.emailAdd"
+                      />
+                      <label>user profile:</label>
+                      <input
+                      oninvalid="this.setCustomValidity('new profile required')"
+                            oninput="this.setCustomValidity('')" required
+                        type="text"
+                        placeholder="profile image"
+                        v-model="editingUser.userURL"
+                      />
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn" data-bs-dismiss="modal">
+                        Close
+                      </button>
+                      <button
+                        type="button"
+                        class="btn"
+                        @click="updateProduct(user.userID)"
+                        data-bs-dismiss="modal"
+                      >
+                        Save changes
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div><button @click="deleteUser(user.userID)">delete</button></td>
           </tr>
           <tr v-else>
             <Spinner />
@@ -44,28 +151,28 @@
     </div>
     <h1 class="heading">PRODUCTS</h1>
     <div class="row">
-      <div class="col-4">
+      <div class="col-4" data-aos="zoom-in-down">
         <button @click="sortByPrice" id="button">Sort by Price</button>
       </div>
-      <div class="col-4">
-        <select v-model="categoryFilter">
-          <option value="">All Categories</option>
-          <option value="GENERATOR">GENERATOR</option>
-          <option value="INVERTERS">INVERTERS</option>
-          <option value="UPS">UPS</option>
-          <option value="SOLAR PANELS">SOLAR PANELS</option>
-          <option value="POWER BANKS">POWER BANKS</option>
-          <option value="GAS STOVES">GAS STOVES</option>
-          <option value="LOADSHEDDING LIGHTS">LOADSHEDDING LIGHTS</option>
+      <div class="col-4" data-aos="zoom-in-down">
+        <select class="form-select m-auto" aria-label="Default select example" v-model="categoryFilter">
+          <option value="default">Filter/Default</option>
+          <option value="generator">generator</option>
+          <option value="inverter">inverter</option>
+          <option value="ups">ups</option>
+          <option value="solar panel">solar panel</option>
+          <option value="powerbank">powerbank</option>
+          <option value="gas stoves">gas stoves</option>
+          <option value="Loadshedding Lights">loadshedding lights</option>
         </select>
       </div>
-      <div class="col-4">
-        <button @click="sortByAlphabet" id="button">Sort Alphabetically</button>
+      <div class="col-4" data-aos="zoom-in-down">
+        <button @click="sortByAlphabet" id="button2">Sort Alphabetically</button>
       </div>
     </div>
-    <addProduct />
+    <addProduct/>
     <div class="table-responsive">
-      <table class="table table-bordered border-#93B1A6 text-center">
+      <table class="table table-bordered border-#93B1A6 text-center" data-aos="zoom-in-down">
         <thead>
           <tr>
             <th>ID</th>
@@ -108,22 +215,38 @@
 
 <script>
 import Spinner from "../components/SpinnerComp.vue";
-import updateUser from '../components/UpdateUserComp.vue'
+// import updateUser from '../components/UpdateUserComp.vue'
 import updateProduct from "../components/UpdateProductComp.vue";
 import addProduct from "../components/AddProductComp.vue";
 import addUser from '../components/AddUserComp.vue'
 export default {
+  props: ["user"],
   data() {
     return {
+      sortCategory: "",
       sortBy: "prodName",
       sortOrder: "asc",
-      categoryFilter: null,
-      filteredProducts: []
+      categoryFilter: "default",
+      editingUser: {
+        ...this.user,
+      },
+      editingUserID: null,
+      model: {
+        user: {
+          firstName: "",
+          lastName: "",
+          age: "",
+          gender: "",
+          emailAdd: "",
+          userRole: "",
+          userURL: "",
+        },
+      },
     }
   },
   components: {
     Spinner,
-    updateUser,
+    // updateUser,
     updateProduct,
     addProduct,
     addUser
@@ -140,6 +263,16 @@ export default {
     },
     products() {
       return this.$store.state.products || [];
+    },
+    filteredProducts() {
+    // let filtered = this.$store.state.products.filter((products) =>
+      // products.prodName.toLowerCase().includes(this.searchQuery.toLowerCase()) &&
+      // (this.categoryFilter === 'default' || products.category === this.categoryFilter)
+    // )
+    return filtered;
+  },
+  currentUser() {
+      return this.$store.state.user;
     },
   },
   mounted() {
@@ -204,20 +337,44 @@ export default {
     //   return this.products.category === this.categoryFilter;
     // });
     // console.log('Filtered Products:', this.filteredProducts);
-    filteredProducts() {
-    const selectedCategory = this.categoryFilter;
-
-    if (!selectedCategory) {
-      return this.products;
-    } else {
-      return this.products.filter(product => product.category === selectedCategory);
-    }
-  },
+    // filteredProducts() {
+    // let filtered = this.$store.state.products.filter((products) =>
+      // products.prodName.toLowerCase().includes(this.searchQuery.toLowerCase()) &&
+    //   (this.categoryFilter === null || products.category === this.categoryFilter)
+    // )
+    // return filtered;
+//  },
+openEditModal(id) {
+      console.log("reached");
+      this.editingUserID = id;
+      this.editingUser = {
+        ...this.$store.state.users.find((user) => user.userID === id),
+      };
+    },
+    updateProduct(id) {
+      this.$store
+        .dispatch("updateUser", {
+          userID: id,
+          data: { ...this.editingUser },
+        })
+        .then(() => {
+          console.log("User updated!");
+        })
+        .catch((err) => {
+          console.error("Error updating: ", err);
+        });
+        setTimeout(() => {
+          location.reload();
+        }, 500);
+    },
   },
 };
 </script>
 
 <style scoped>
+.modal{
+  height: max-content;
+}
 .image {
   width: 5rem;
 }
@@ -240,31 +397,36 @@ export default {
 
 button {
   padding: 0.5rem;
-  width: 5rem;
+  width: 10rem;
   border: 2px solid #759e8f;
-  background-color: #5c8374;
-  color: white;
+  background-color: #93b1a6;
+  color: black;
   margin-bottom: 1rem;
   font-weight: bolder;
   border-radius: 5rem;
 }
 
 button:hover {
-  background-color: #93b1a6;
+  color: white;
+  border: 2px solid #93b1a6;
+  background-color: #5c8374;
 }
 
-#button {
+
+#button2 {
   padding: 0.5rem;
-  width: 10rem;
+  width: 15rem;
   border: 2px solid #759e8f;
   background-color: #93b1a6;
-  color: white;
+  color: black;
   margin-bottom: 1rem;
   font-weight: bolder;
   border-radius: 5rem;
 }
 
-#button:hover {
+#button2:hover {
+  color: white;
+  border: 2px solid #93b1a6;
   background-color: #5c8374;
 }
 

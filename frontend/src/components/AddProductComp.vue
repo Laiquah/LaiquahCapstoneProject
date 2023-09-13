@@ -159,13 +159,22 @@ input {
     width: 10rem;
     border: 2px solid #759e8f;
     background-color: #93b1a6;
-    color: white;
+    color: black;
     margin-bottom: 1rem;
     font-weight: bolder;
     border-radius: 5rem;
   }
   
-  button:hover{
-    background-color: #5C8374;
+  button:hover {
+    border: 2px solid #93b1a6;
+    background-color: #5c8374;
+    color: white;
+  }
+
+  label{
+    font-size: larger;
+    font-weight: bolder;
+    color: white;
+    text-shadow: 2px 2px 2px black;
   }
 </style>

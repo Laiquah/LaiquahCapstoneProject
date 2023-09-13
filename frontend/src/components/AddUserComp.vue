@@ -156,18 +156,23 @@
     padding: 0.5rem;
     width: 10rem;
     border: 2px solid #759e8f;
-    background-color: #5c8374;
-    color: white;
+    background-color: #93b1a6;
+    color: black;
     margin-bottom: 1rem;
     font-weight: bolder;
     border-radius: 5rem;
   }
   
   button:hover {
-    background-color: #93b1a6;
+    color: white;
+    border: 2px solid #93b1a6;
+    background-color: #5c8374;
   }
 
   label{
-    color:black;
+    font-size: larger;
+    font-weight: bolder;
+    color: black;
+    text-shadow: 2px 2px 2px white;
   }
   </style>

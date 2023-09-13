@@ -190,7 +190,27 @@ export default createStore({
         console.log(res)
         const { msg, err } = res.data
         if(msg){
-          // context.dispatch("fetchUsers")
+          context.dispatch("fetchUsers")
+          context.dispatch("fetchUser")
+          context.commit("updateUser", payload.data)
+          // context.commit("setUser", msg)
+          localStorage.setItem("userData", JSON.stringify(payload.data))
+        } else{
+          context.commit("setMsg", err || "An error occured")
+        }
+      } catch (e) {
+        context.commit("setMsg", "an error occured");
+      }
+    },
+    async updateUse(context, payload) {
+      console.log(payload)
+      try {
+        const res = await axios.patch(`${miniURL}user/${payload.userID}`, payload.data);
+        console.log(res)
+        const { msg, err } = res.data
+        if(msg){
+          context.dispatch("fetchUsers")
+          context.dispatch("fetchUser")
           context.commit("updateUser", payload.data)
           // context.commit("setUser", msg)
           localStorage.setItem("userData", JSON.stringify(payload.data))

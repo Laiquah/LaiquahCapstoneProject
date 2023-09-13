@@ -23,6 +23,8 @@ export default {
 
 <style>
 @import url('https://fonts.cdnfonts.com/css/granstander-clean');
+
+
                 
 #app {
   font-family: 'Granstander Clean', sans-serif;
@@ -43,7 +45,7 @@ a{
 }
 
 nav a.router-link-exact-active{
-  color: #5C8374;
+  color: #5C8374 !important;
   text-shadow: 2px 2px white;
 }
 </style>

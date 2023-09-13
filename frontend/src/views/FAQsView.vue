@@ -1,8 +1,8 @@
 <template>
     <div>
-        <h1 class="heading">REVIEWS ABOUT POWER OUTAGE INNOVATIONS</h1>
+        <h1 class="heading" data-aos="zoom-in-down">REVIEWS ABOUT POWER OUTAGE INNOVATIONS</h1>
         <center>
-            <div id="carouselExampleCaptions" class="carousel slide">
+            <div id="carouselExampleCaptions" class="carousel slide" data-aos="zoom-in-down">
                 <div class="carousel-indicators">
                   <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
                   <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -118,8 +118,8 @@
   font-weight: bolder;
   font-size:x-large;
   text-decoration: underline;
-  color: black;
-  text-shadow: 2px 2px 2px black;
+  color: #93b1a6;
+  text-shadow: 2px 2px black;
 }
 .btn1 {
   padding: 0.5rem;

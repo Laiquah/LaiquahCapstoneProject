@@ -1,15 +1,16 @@
 <template>
   <div>
     <div class="about">
-      <h1 class="heading">ABOUT POWER OUTAGE INNOVATIONS</h1>
+      <h1 class="heading" data-aos="zoom-in-down">ABOUT POWER OUTAGE INNOVATIONS</h1>
       <center>
-        <div class="display">
+        <div class="display" data-aos="zoom-in-down">
           <img
             src="https://i.postimg.cc/1XHKthPf/Screenshot-2023-08-27-131317-removebg-preview.png"
             alt="logo"
             loading="lazy"
             class="img-fluid"
             id="image"
+            data-aos="zoom-in-down"
           />
           Power Outage Innovations is dedicated to transforming how people and
           businesses manage power disruptions. By developing advanced solutions,
@@ -27,9 +28,9 @@
       <center>
         <hr />
       </center>
-      <h1 class="heading">SERVICES & PARTNERSHIPS</h1>
+      <h1 class="heading" data-aos="zoom-in-down">SERVICES & PARTNERSHIPS</h1>
       <center>
-        <div class="services">
+        <div class="services" data-aos="zoom-in-down">
           Power Outage Innovations is a pioneering company focused on
           revolutionizing how individuals and businesses deal with power
           disruptions. With a deep understanding of the challenges posed by
@@ -44,7 +45,7 @@
           opportunities for seamless continuity and empowerment.
         </div>
         <div class="row">
-          <div class="col-4">
+          <div class="col-4" data-aos="zoom-in-down">
             <img
               src="https://i.postimg.cc/2y63D4RX/download.png"
               alt="samsung"
@@ -52,7 +53,7 @@
               class="img-fluid"
             />
           </div>
-          <div class="col-4">
+          <div class="col-4" data-aos="zoom-in-down">
             <img
               src="https://i.postimg.cc/rpcLtxyn/images-9.jpg"
               alt="hauwei"
@@ -60,7 +61,7 @@
               class="img-fluid"
             />
           </div>
-          <div class="col-4">
+          <div class="col-4" data-aos="zoom-in-down">
             <img
               src="https://i.postimg.cc/Vs3skStT/images-2.png"
               alt="generac"
@@ -70,7 +71,7 @@
           </div>
         </div>
         <div class="row">
-          <div class="col" id="card1">
+          <div class="col" id="card1" data-aos="zoom-in-down">
             <img
               src="https://i.postimg.cc/Bbhx2TGx/download-3.png"
               alt="CyberPower Systems"
@@ -78,7 +79,7 @@
               class="img-fluid"
             />
           </div>
-          <div class="col" id="card2">
+          <div class="col" id="card2" data-aos="zoom-in-down">
             <img
               src="https://i.postimg.cc/sXLjSxNM/images-10.jpg"
               alt="Energizer"
@@ -91,9 +92,9 @@
       <center>
         <hr />
       </center>
-      <h1 class="heading">MEET THE TEAM</h1>
+      <h1 class="heading" data-aos="zoom-in-down">MEET THE TEAM</h1>
       <center>
-        <div id="carouselExampleCaptions" class="carousel slide">
+        <div id="carouselExampleCaptions" class="carousel slide" data-aos="zoom-in-down">
           <div class="carousel-indicators">
             <button
               type="button"

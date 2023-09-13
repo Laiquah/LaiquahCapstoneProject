@@ -68,7 +68,7 @@ export default {
 
   input{
     width: 100%;
-    height: 2.5rem;
+    height: max-content;
     border: 2px solid #5c8374;
     border-radius: .5rem;
   }

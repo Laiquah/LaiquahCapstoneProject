@@ -3,7 +3,6 @@
     <button
       type="button"
       class="btn"
-      @click="openEditModal(product.prodID)"
       data-bs-toggle="modal"
       :data-bs-target="'#exampleModal' + product.prodID"
     >

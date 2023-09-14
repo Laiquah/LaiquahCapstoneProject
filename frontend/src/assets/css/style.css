@@ -9,8 +9,3 @@
 body{
     overflow-x: hidden;
 }
-
-.modal-backdrop{
-    position: static !important;
-    /* z-index: 1049 !important; */
-}

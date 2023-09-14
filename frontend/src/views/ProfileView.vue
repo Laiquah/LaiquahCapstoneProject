@@ -43,93 +43,109 @@
     </div>
     <div class="row">
       <center>
-          <button @click="logout">logout</button>
-          <button
-            type="button"
-            class="btn1"
-            @click="openEditModal(thisUser.userID)"
-            data-bs-toggle="modal"
-            :data-bs-target="'#mexampleModal' + editingUser.userID"
-          >
-            edit
-          </button>
-          <div
-            class="modal fade"
-            :id="'mexampleModal' + editingUser.userID"
-            tabindex="-1"
-            :aria-labelledby="'mexampleModalLabel' + editingUser.userID"
-            aria-hidden="true"
-          >
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h1 class="modal-title fs-5" id="mexampleModalLabel3">
-                    update your information
-                  </h1>
-                  <button
-                    type="button"
-                    class="btn-close"
-                    data-bs-dismiss="modal"
-                    aria-label="Close"
-                  ></button>
-                </div>
-                <div class="modal-body">
-                  <label>first name:</label>
-                  <input
-                    type="text"
-                    placeholder="first name"
-                    oninvalid="this.setCustomValidity('first name required')"
-                  oninput="this.setCustomValidity('')" required
-                    v-model="editingUser.firstName"
-                  />
-                  <label>last name:</label>
-                  <input
-                    type="text"
-                    placeholder="last name"
-                    oninvalid="this.setCustomValidity('last name required')"
-                  oninput="this.setCustomValidity('')" required
-                    v-model="editingUser.lastName"
-                  />
-                  <label>age:</label>
-                  <input type="text" placeholder="age" oninvalid="this.setCustomValidity('please enter your age here')"
-                  oninput="this.setCustomValidity('')" required v-model="editingUser.age" />
-                  <label>gender:</label>
-                  <input type="text" placeholder="gender" oninvalid="this.setCustomValidity('please enter your gender here')"
-                  oninput="this.setCustomValidity('')" required v-model="editingUser.gender" />
-                  <label>email address:</label>
-                  <input
-                    type="email"
-                    placeholder="emailAdd"
-                    oninvalid="this.setCustomValidity('please enter email here')"
-                  oninput="this.setCustomValidity('')" required
-                    v-model="editingUser.emailAdd"
-                  />
-                  <label>user profile:</label>
-                  <input
-                    type="text"
-                    id="test"
-                    placeholder="profile image"
-                    oninvalid="this.setCustomValidity('please insert a profile picture')"
-                  oninput="this.setCustomValidity('')" required
-                    v-model="editingUser.userURL"
-                  />
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn" data-bs-dismiss="modal">
-                    Close
-                  </button>
-                  <button
-                    type="button"
-                    class="btn"
-                    @click="updateUser(editingUser.userID)"
-                  >
-                    Save changes
-                  </button>
-                </div>
+        <button @click="logout">logout</button>
+        <button
+          type="button"
+          class="btn1"
+          @click="openEditModal(thisUser.userID)"
+          data-bs-toggle="modal"
+          :data-bs-target="'#mexampleModal' + editingUser.userID"
+        >
+          edit
+        </button>
+        <div
+          class="modal fade"
+          :id="'mexampleModal' + editingUser.userID"
+          tabindex="-1"
+          :aria-labelledby="'mexampleModalLabel' + editingUser.userID"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5" id="mexampleModalLabel3">
+                  update your information
+                </h1>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div class="modal-body">
+                <label>first name:</label>
+                <input
+                  type="text"
+                  placeholder="first name"
+                  oninvalid="this.setCustomValidity('first name required')"
+                  oninput="this.setCustomValidity('')"
+                  required
+                  v-model="editingUser.firstName"
+                />
+                <label>last name:</label>
+                <input
+                  type="text"
+                  placeholder="last name"
+                  oninvalid="this.setCustomValidity('last name required')"
+                  oninput="this.setCustomValidity('')"
+                  required
+                  v-model="editingUser.lastName"
+                />
+                <label>age:</label>
+                <input
+                  type="text"
+                  placeholder="age"
+                  oninvalid="this.setCustomValidity('please enter your age here')"
+                  oninput="this.setCustomValidity('')"
+                  required
+                  v-model="editingUser.age"
+                />
+                <label>gender:</label>
+                <input
+                  type="text"
+                  placeholder="gender"
+                  oninvalid="this.setCustomValidity('please enter your gender here')"
+                  oninput="this.setCustomValidity('')"
+                  required
+                  v-model="editingUser.gender"
+                />
+                <label>email address:</label>
+                <input
+                  type="email"
+                  placeholder="emailAdd"
+                  oninvalid="this.setCustomValidity('please enter email here')"
+                  oninput="this.setCustomValidity('')"
+                  required
+                  v-model="editingUser.emailAdd"
+                />
+                <label>user profile:</label>
+                <input
+                  type="text"
+                  id="test"
+                  placeholder="profile image"
+                  oninvalid="this.setCustomValidity('please insert a profile picture')"
+                  oninput="this.setCustomValidity('')"
+                  required
+                  v-model="editingUser.userURL"
+                />
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn" data-bs-dismiss="modal">
+                  Close
+                </button>
+                <button
+                  type="button"
+                  class="btn"
+                  @click="updateUser(editingUser.userID)"
+                >
+                  Save changes
+                </button>
               </div>
             </div>
           </div>
-          <button @click="deleteUser(user.userID)">delete</button>
+        </div>
+        <button @click="deleteUser(user.userID)">delete</button>
       </center>
     </div>
   </div>
@@ -155,7 +171,7 @@ export default {
           emailAdd: "",
           userURL: "",
         },
-      }
+      },
     };
   },
   created() {
@@ -184,7 +200,7 @@ export default {
         setTimeout(() => {
           location.reload();
         }, 500);
-      } 
+      }
     },
     logout() {
       console.log("reached");
@@ -209,7 +225,7 @@ export default {
         await this.$store.dispatch("updateUser", {
           userID: id,
           data: { ...this.editingUser },
-        })
+        });
         setTimeout(() => {
           location.reload();
         }, 500);
@@ -285,7 +301,7 @@ button:hover {
   margin-bottom: 2rem;
   text-decoration: underline;
   font-weight: bolder;
-  text-shadow: 2px 2px #93b1a6
+  text-shadow: 2px 2px #93b1a6;
 }
 
 p {
@@ -304,40 +320,40 @@ input {
   margin-bottom: 2rem;
 }
 
-label{
+label {
   font-size: larger;
   font-weight: bolder;
   color: white;
   text-shadow: 2px 2px 2px black;
 }
 
-@media screen and (max-width:300px) {
-  .row{
+@media screen and (max-width: 300px) {
+  .row {
     --bs-gutter-x: 0;
     flex-direction: column;
   }
 
-  .col-6{
+  .col-6 {
     width: 100%;
   }
 
-  p{
+  p {
     font-size: small;
     width: 100%;
   }
 }
 
-@media screen and (max-width:700px) {
-  .row{
+@media screen and (max-width: 700px) {
+  .row {
     --bs-gutter-x: 0;
     flex-direction: column;
   }
 
-  .col-6{
+  .col-6 {
     width: 100%;
   }
 
-  p{
+  p {
     font-size: small;
     width: 100%;
   }

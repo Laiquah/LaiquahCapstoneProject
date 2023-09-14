@@ -158,9 +158,9 @@ export default {
         .catch((err) => {
           console.error("Error updating: ", err);
         });
-        setTimeout(() => {
-          location.reload();
-        }, 500);
+      setTimeout(() => {
+        location.reload();
+      }, 500);
     },
   },
 };
@@ -188,9 +188,5 @@ button:hover {
   color: white;
   border: 2px solid #93b1a6;
   background-color: #5c8374;
-}
-
-.modal-backdrop{
-  z-index: 50 !important;
 }
 </style>

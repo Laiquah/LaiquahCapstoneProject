@@ -3,7 +3,7 @@
     <h1 class="heading">USERS</h1>
     <addUser/>
     <div class="table-responsive">
-      <table class="table table-bordered border-#93B1A6 text-center" data-aos="zoom-in-down">
+      <table class="table table-bordered border-#93B1A6 text-center" data-aos="zoom-in-down" v-if="users">
         <thead>
           <tr>
             <th>ID</th>
@@ -18,7 +18,7 @@
           </tr>
         </thead>
         <tbody v-for="user in users" :key="user.userID">
-          <tr v-if="users">
+          <tr>
             <td>{{ user.userID }}</td>
             <td>{{ user.firstName }}</td>
             <td>{{ user.lastName }}</td>
@@ -34,120 +34,17 @@
                 class="img-fluid image"
               />
             </td>
-            <td> <!-- Button trigger modal -->
-              <button
-                type="button"
-                class="btn"
-                @click="openEditModal(user.userID)"
-                data-bs-toggle="modal"
-                :data-bs-target="'#texampleModal' + user.userID"
-              >
-                edit
-              </button>
-          
-              <!-- Modal -->
-              <div
-                class="modal fade"
-                :id="'texampleModal' + user.userID"
-                tabindex="-1"
-                :aria-labelledby="'texampleModalLabel' + user.userID"
-                aria-hidden="true"
-              >
-                <div class="modal-dialog">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h1 class="modal-title fs-5" id="texampleModalLabel3">
-                        Edit an user here
-                      </h1>
-                      <button
-                        type="button"
-                        class="btn-close"
-                        data-bs-dismiss="modal"
-                        aria-label="Close"
-                      ></button>
-                    </div>
-                    <div class="modal-body">
-                      <label>userID:</label>
-                      <input type="text" placeholder="ID" v-model="editingUser.userID" />
-                      <label>first name:</label>
-                      <input
-                      oninvalid="this.setCustomValidity('new first name required')"
-                            oninput="this.setCustomValidity('')" required
-                        type="text"
-                        placeholder="first name"
-                        v-model="editingUser.firstName"
-                      />
-                      <label>last name:</label>
-                      <input
-                      oninvalid="this.setCustomValidity('new last name required')"
-                            oninput="this.setCustomValidity('')" required
-                        type="text"
-                        placeholder="last name"
-                        v-model="editingUser.lastName"
-                      />
-                      <label>Age:</label>
-                      <input
-                      oninvalid="this.setCustomValidity('new age required')"
-                            oninput="this.setCustomValidity('')" required
-                        type="number"
-                        placeholder="age"
-                        v-model="editingUser.age"
-                      />
-                      <label>gender:</label>
-                      <input
-                      oninvalid="this.setCustomValidity('new gender required')"
-                            oninput="this.setCustomValidity('')" required
-                        type="text"
-                        placeholder="gender"
-                        v-model="editingUser.gender"
-                      />
-                      <label>user role:</label>
-                      <input
-                      oninvalid="this.setCustomValidity('change in role')"
-                            oninput="this.setCustomValidity('')" required
-                        type="text"
-                        placeholder="role"
-                        v-model="editingUser.userRole"
-                      />
-                      <label>email address:</label>
-                      <input
-                      oninvalid="this.setCustomValidity('provide your new email')"
-                            oninput="this.setCustomValidity('')" required
-                        type="text"
-                        placeholder="email address"
-                        v-model="editingUser.emailAdd"
-                      />
-                      <label>user profile:</label>
-                      <input
-                      oninvalid="this.setCustomValidity('new profile required')"
-                            oninput="this.setCustomValidity('')" required
-                        type="text"
-                        placeholder="profile image"
-                        v-model="editingUser.userURL"
-                      />
-                    </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn" data-bs-dismiss="modal">
-                        Close
-                      </button>
-                      <button
-                        type="button"
-                        class="btn"
-                        @click="updateProduct(user.userID)"
-                        data-bs-dismiss="modal"
-                      >
-                        Save changes
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div><button @click="deleteUser(user.userID)">delete</button></td>
-          </tr>
-          <tr v-else>
-            <Spinner />
-          </tr>
-        </tbody>
-      </table>
+            <td>
+            <!-- <updateUser :user="user" /> -->
+            <button @click="$router.push('/updateUser')">Edit</button>
+            <button @click="deleteUser(user.userID)">delete</button>
+            </td>
+            </tr>
+          </tbody>
+        </table>
+        <div v-else>
+          <Spinner />
+        </div>
     </div>
     <h1 class="heading">PRODUCTS</h1>
     <div class="row">
@@ -172,7 +69,7 @@
     </div>
     <addProduct/>
     <div class="table-responsive">
-      <table class="table table-bordered border-#93B1A6 text-center" data-aos="zoom-in-down">
+      <table class="table table-bordered border-#93B1A6 text-center" data-aos="zoom-in-down" v-if="product">
         <thead>
           <tr>
             <th>ID</th>
@@ -188,7 +85,7 @@
           </tr>
         </thead>
         <tbody v-for="product in products" :key="product.prodID">
-          <tr v-if="product">
+          <tr>
             <td>{{ product.prodID }}</td>
             <td>{{ product.prodName }}</td>
             <td class="text">{{ product.prodDesc }}</td>
@@ -205,7 +102,7 @@
             </td>
             <td>{{ product.prodPrice }}</td>
             <td>{{ product.category }}</td>
-            <td><updateProduct :product="product" /><button @click="deleteProduct(product.prodID)">delete</button></td>
+            <td> <button @click="$router.push('/updateProduct')">Edit</button><button @click="deleteProduct(product.prodID)">delete</button></td>
           </tr>
         </tbody>
       </table>
@@ -216,7 +113,7 @@
 <script>
 import Spinner from "../components/SpinnerComp.vue";
 // import updateUser from '../components/UpdateUserComp.vue'
-import updateProduct from "../components/UpdateProductComp.vue";
+// import updateProduct from "../components/UpdateProductComp.vue";
 import addProduct from "../components/AddProductComp.vue";
 import addUser from '../components/AddUserComp.vue'
 export default {
@@ -227,27 +124,12 @@ export default {
       sortBy: "prodName",
       sortOrder: "asc",
       categoryFilter: "default",
-      editingUser: {
-        ...this.user,
-      },
-      editingUserID: null,
-      model: {
-        user: {
-          firstName: "",
-          lastName: "",
-          age: "",
-          gender: "",
-          emailAdd: "",
-          userRole: "",
-          userURL: "",
-        },
-      },
     }
   },
   components: {
     Spinner,
     // updateUser,
-    updateProduct,
+    // updateProduct,
     addProduct,
     addUser
   },
@@ -271,9 +153,6 @@ export default {
     // )
     return filtered;
   },
-  currentUser() {
-      return this.$store.state.user;
-    },
   },
   mounted() {
     this.$store.dispatch("fetchUsers");
@@ -344,37 +223,11 @@ export default {
     // )
     // return filtered;
 //  },
-openEditModal(id) {
-      console.log("reached");
-      this.editingUserID = id;
-      this.editingUser = {
-        ...this.$store.state.users.find((user) => user.userID === id),
-      };
-    },
-    updateProduct(id) {
-      this.$store
-        .dispatch("updateUser", {
-          userID: id,
-          data: { ...this.editingUser },
-        })
-        .then(() => {
-          console.log("User updated!");
-        })
-        .catch((err) => {
-          console.error("Error updating: ", err);
-        });
-        setTimeout(() => {
-          location.reload();
-        }, 500);
-    },
   },
 };
 </script>
 
 <style scoped>
-.modal{
-  height: max-content;
-}
 .image {
   width: 5rem;
 }

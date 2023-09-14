@@ -99,7 +99,16 @@ const routes = [
     name: 'RegisterView',
     component: () => import('../views/RegisterView.vue')
   },
-
+  {
+    path: '/updateUser',
+    name: 'updateUser',
+    component: () => import('../views/UpdateUserView.vue')
+  },
+  {
+    path: '/updateProduct',
+    name: 'updateProduct',
+    component: () => import('../views/UpdateProductView.vue')
+  }
 ]
 
 const router = createRouter({

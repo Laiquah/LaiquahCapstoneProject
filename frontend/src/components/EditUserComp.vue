@@ -1,8 +1,6 @@
 <template>
-  <div>
-    <h1 class="heading">EDIT THE PRODUCT HERE</h1>
-    <!-- Button trigger modal -->
-   <button
+    <div>
+        <button
       type="button"
       @click="openEditModal(thisProduct.prodID)"
       data-bs-toggle="modal"
@@ -11,7 +9,6 @@
       Click here to edit the product
     </button>
 
-    <!-- Modal -->
     <div
       class="modal fade"
       :id="'updateProductModal' + editingProduct.prodID"
@@ -117,11 +114,12 @@
         </div>
       </div>
     </div>
-  </div>
+    </div>
 </template>
 
 <script>
-export default {
+    export default {
+        props: ["products"],
   data() {
     return {
       editingProduct: {...this.thisProduct},
@@ -147,18 +145,18 @@ export default {
   },
   methods: {
     openEditModal(prodID) {
-      console.log(this.editingProduct)
-      this.$store.dispatch("fetchProduct")
       this.editingProductID = prodID;
       this.editingProduct = {
-        ...this.$store.dispatch("fetchProduct")
+        ...this.$store.state.products.find(
+          (product) => product.prodID === prodID
+        ),
       };
     },
     updateProduct(prodID) {
       this.$store
         .dispatch("updateProduct", {
           prodID: prodID,
-          ...this.thisProduct,
+          ...this.editingProduct,
         })
         .then(() => {
           console.log("Product updated!");
@@ -172,58 +170,5 @@ export default {
 </script>
 
 <style scoped>
-.heading {
-  margin-top: 2rem;
-  margin-bottom: 2rem;
-  text-decoration: underline;
-  font-weight: bolder;
-  text-shadow: 2px 2px #93b1a6;
-}
 
-input {
-  width: 100%;
-  height: 3rem;
-  margin-bottom: 2rem;
-}
-
-button {
-  padding: 0.5rem;
-  width: 10rem;
-  border: 2px solid #759e8f;
-  background-color: #93b1a6;
-  color: black;
-  margin-bottom: 1rem;
-  font-weight: bolder;
-  border-radius: 5rem;
-}
-
-button:hover {
-  color: white;
-  border: 2px solid #93b1a6;
-  background-color: #5c8374;
-}
-
-.btn {
-  padding: 0.5rem;
-  width: 15rem;
-  border: 2px solid #759e8f;
-  background-color: #93b1a6;
-  color: black;
-  margin-bottom: 1rem;
-  font-weight: bolder;
-  border-radius: 5rem;
-}
-
-.btn:hover {
-  color: white;
-  border: 2px solid #93b1a6;
-  background-color: #5c8374;
-}
-
-label {
-  font-size: larger;
-  font-weight: bolder;
-  color: white;
-  text-shadow: 2px 2px 2px black;
-}
 </style>

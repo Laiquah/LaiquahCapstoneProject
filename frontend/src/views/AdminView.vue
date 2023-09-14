@@ -69,7 +69,7 @@
     </div>
     <addProduct/>
     <div class="table-responsive">
-      <table class="table table-bordered border-#93B1A6 text-center" data-aos="zoom-in-down" v-if="product">
+      <table class="table table-bordered border-#93B1A6 text-center" data-aos="zoom-in-down" v-if="filteredProducts.length > 0">
         <thead>
           <tr>
             <th>ID</th>
@@ -84,7 +84,7 @@
             <th>ACTION</th>
           </tr>
         </thead>
-        <tbody v-for="product in products" :key="product.prodID">
+        <tbody v-for="product in filteredProducts" :key="product.prodID">
           <tr>
             <td>{{ product.prodID }}</td>
             <td>{{ product.prodName }}</td>
@@ -147,12 +147,12 @@ export default {
       return this.$store.state.products || [];
     },
     filteredProducts() {
-    // let filtered = this.$store.state.products.filter((products) =>
-      // products.prodName.toLowerCase().includes(this.searchQuery.toLowerCase()) &&
-      // (this.categoryFilter === 'default' || products.category === this.categoryFilter)
-    // )
-    return filtered;
-  },
+      if (this.categoryFilter === "default") {
+        return this.products;
+      } else {
+        return this.products.filter((product) => product.category === this.categoryFilter);
+      }
+    },
   },
   mounted() {
     this.$store.dispatch("fetchUsers");
@@ -207,22 +207,6 @@ export default {
         }
       });
     },
-    // filterByCategory() {
-    //   console.log('Category Filter:', this.categoryFilter);
-    // this.filteredProducts = this.products.filter((product) => {
-    //   if (!this.categoryFilter) {
-    //     return true;
-    //   }
-    //   return this.products.category === this.categoryFilter;
-    // });
-    // console.log('Filtered Products:', this.filteredProducts);
-    // filteredProducts() {
-    // let filtered = this.$store.state.products.filter((products) =>
-      // products.prodName.toLowerCase().includes(this.searchQuery.toLowerCase()) &&
-    //   (this.categoryFilter === null || products.category === this.categoryFilter)
-    // )
-    // return filtered;
-//  },
   },
 };
 </script>

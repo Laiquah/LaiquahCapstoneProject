@@ -38,9 +38,9 @@
                 </button>
               </div>
         </center>
-        <h1 class="heading">FREQUENTLY ASKED QUESTIONS:</h1>
+        <h1 class="heading" data-aos="zoom-in-down">FREQUENTLY ASKED QUESTIONS:</h1>
         <center>
-            <div class="card">
+            <div class="card" data-aos="zoom-in-down">
                 <div class="card-body">
                   <p class="question">
                     Question: What are the different types of electricity generators?
@@ -52,7 +52,7 @@
               <center>
                 <hr>
               </center>
-              <div class="card">
+              <div class="card" data-aos="zoom-in-down">
                 <div class="card-body">
                   <p class="question">
                     Question: What are the types of electricity inverters?
@@ -64,7 +64,7 @@
               <center>
                 <hr>
               </center>
-              <div class="card">
+              <div class="card" data-aos="zoom-in-down">
                 <div class="card-body">
                   <p class="question">
                     Question: What are the different types of electricity power banks?
@@ -76,7 +76,7 @@
               <center>
                 <hr>
               </center>
-              <div class="card">
+              <div class="card" data-aos="zoom-in-down">
                 <div class="card-body">
                   <p class="question">
                     Question: Do solar panels work during cloudy days or at night?
@@ -88,7 +88,7 @@
               <center>
                 <hr>
               </center>
-              <div class="card">
+              <div class="card" data-aos="zoom-in-down">
                 <div class="card-body">
                   <p class="question">
                     Question: Can gas stoves be used during power outages?
@@ -98,11 +98,11 @@
                 </div>
               </div>
         </center>
-        <div class="heading2">
+        <div class="heading2" data-aos="zoom-in-down">
             IF YOU DIDNT FIND YOUR ANSWER TO THE QUESTION YOU HAD YOU ARE MORE THAN WELCOME TO LEAVE A MESSAGE BELOW AND WE’LL GET BACK TO YOU.
         </div>
         <center>
-            <button class="btn1" href="/contact">contact us</button>
+            <button class="btn1"><a href="/contact">contact us</a></button>
         </center>
     </div>
 </template>

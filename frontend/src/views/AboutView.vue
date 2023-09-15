@@ -233,26 +233,35 @@ export default {};
   padding: 0.5rem;
   width: 15rem;
   border: 2px solid #759e8f;
-  background-color: #5c8374;
-  color: white;
+  background-color: #93b1a6;
+  color: black;
   margin-bottom: 1rem;
   font-weight: bolder;
   border-radius: 5rem;
 }
 
 .buttons:hover {
+  color: white;
+  border: 2px solid #93b1a6;
+  background-color: #5c8374;
+}
+.btn2 {
+  padding: 0.5rem;
+  width: 7rem;
+  border: 2px solid #759e8f;
   background-color: #93b1a6;
+  color: black;
+  margin-bottom: 1rem;
+  font-weight: bolder;
+  border-radius: 5rem;
 }
 
-.btn2{
-  margin-top: 2rem;
-  font-weight: bold;
-  background-color: #93B1A6;
-  padding: .4rem;
-  width: 7rem;
-  border-radius: 1rem;
+.btn2:hover {
   color: white;
+  border: 2px solid #93b1a6;
+  background-color: #5c8374;
 }
+
 .carousel-inner {
   width: 20rem;
   height: 30rem;

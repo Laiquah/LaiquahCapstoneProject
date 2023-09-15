@@ -112,6 +112,7 @@
 </template>
 
 <script>
+import Swal from 'sweetalert2'
 export default {
   data() {
     return {
@@ -153,11 +154,16 @@ export default {
           userID: id,
           data: { ...this.editingUser },
         });
+        Swal.fire({
+        icon: "success",
+        title:"User updated",
+        text:"You have successfully updated this user"
+      }).then(()=>{
         setTimeout(() => {
           location.reload();
         }, 500);
-        console.log(this.editingUser);
-        console.log(id);
+        this.$router.push('/admin')
+      })
       } catch (e) {
         console.log(e);
       }

@@ -35,6 +35,7 @@
 </template>
 
 <script>
+import sweet from 'sweetalert'
 export default {
   computed: {
     cart() {
@@ -45,6 +46,7 @@ export default {
     removeFromCart(index) {
       this.$store.dispatch('removeFromCartAction', index);
       localStorage.setItem('cart', JSON.stringify(this.cart));
+      sweet("deleted!", "You successfully deleted the product!", "success")
     },
     updateQuantity(index) {
       const item = this.cart[index];

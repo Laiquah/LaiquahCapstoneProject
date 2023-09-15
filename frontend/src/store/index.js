@@ -19,7 +19,8 @@ export default createStore({
     token: null,
     selectedProduct: null,
     cart: storedCart,
-    removeFromCart: null
+    removeFromCart: null,
+    updateProducts: null
   },
   getters: {
     cartTotal: (state) => {
@@ -66,11 +67,11 @@ export default createStore({
     clearUser(state) {
       state.user = null
     },
-    // updateUser(state, userData) {
-    //   state.user = userData
-    // },
     updateUser(state, updatedUser) {
       state.user = updatedUser
+    },
+    setUpdateProducts(state, product) {
+      state.updateProducts = product
     }
   },
   actions: {
@@ -242,6 +243,7 @@ export default createStore({
       console.log(payload)
       try {
         const res = await axios.patch(`${miniURL}product/${payload.prodID}`, payload);
+        console.log(res)
         const { msg, err } = await res.data;
         console.log(msg, err);
         if (err) {
@@ -255,6 +257,7 @@ export default createStore({
         }
       } catch (e) {
         context.commit("setMsg", e);
+        throw e
       }
     },
     async deleteProduct(context, prodID) {

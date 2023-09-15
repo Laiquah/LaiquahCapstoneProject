@@ -102,7 +102,7 @@
             </td>
             <td>{{ product.prodPrice }}</td>
             <td>{{ product.category }}</td>
-            <td> <button @click="$router.push('/updateProduct')">Edit</button><button @click="deleteProduct(product.prodID)">delete</button></td>
+            <td><button @click="editProduct(product.prodID)">Edit</button><br><button @click="deleteProduct(product.prodID)">delete</button></td>
           </tr>
         </tbody>
       </table>
@@ -112,8 +112,6 @@
 
 <script>
 import Spinner from "../components/SpinnerComp.vue";
-// import updateUser from '../components/UpdateUserComp.vue'
-// import updateProduct from "../components/UpdateProductComp.vue";
 import addProduct from "../components/AddProductComp.vue";
 import addUser from '../components/AddUserComp.vue'
 export default {
@@ -128,8 +126,6 @@ export default {
   },
   components: {
     Spinner,
-    // updateUser,
-    // updateProduct,
     addProduct,
     addUser
   },
@@ -161,6 +157,13 @@ export default {
     this.$store.dispatch("fetchProducts");
   },
   methods: {
+   updateProduct(prodID) {
+      const chosenProd = this.products.find(
+        (product) => product.prodID === prodID
+      );
+      this.$store.commit("updateProducts", chosenProd);
+      this.$router.push({ name: "updateProductView", params: { prodID: prodID } });
+    },
     deleteProduct(prodID) {
       if (confirm("Are you sure you want to delete this product?")) {
         this.$store.dispatch("deleteProduct", prodID);
@@ -168,6 +171,9 @@ export default {
           location.reload();
         }, 500);
       }
+    },
+    editProduct(prodID){
+      this.$router.push({ name: "EditProductView", params:{ prodID } })
     },
     deleteUser(id) {
       if (confirm("Are you sure you want to delete this user?")) {

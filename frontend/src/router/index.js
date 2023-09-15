@@ -105,8 +105,8 @@ const routes = [
     component: () => import('../views/UpdateUserView.vue')
   },
   {
-    path: '/updateProduct',
-    name: 'updateProduct',
+    path: '/product/edit/:prodID',
+    name: 'EditProductView',
     component: () => import('../views/UpdateProductView.vue')
   }
 ]
